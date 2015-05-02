@@ -1,3 +1,5 @@
+<!-- http://www.vogella.com/tutorials/GWTModules/article.html -->
 <module>
-	<source path="server" includes="Libro.scala"/>
+	<inherits name='com.google.gwt.user.User' />
+	<source path="server"></source>
 </module>

@@ -1,4 +1,4 @@
-*.pydevproject
+ 	*.pydevproject
 .metadata
 .gradle
 bin/
@@ -62,5 +62,6 @@ appengine-generated/
 
 # Proyecto Bibliobase
 war/bibliobase
+war/es.junquera.bibliobase.Libro
 .cache
 .gwt-log

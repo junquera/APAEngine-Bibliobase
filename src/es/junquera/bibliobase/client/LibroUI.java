@@ -3,13 +3,13 @@ package es.junquera.bibliobase.client;
 import com.google.gwt.user.client.ui.DockPanel;
 import com.google.gwt.user.client.ui.HTML;
 
-import es.junquera.bibliobase.server.Libro;
+import es.junquera.bibliobase.server.libro.Libro;
 
 public class LibroUI extends DockPanel {
 
 	public LibroUI(Libro libro) {
 		super();
-		super.add(new HTML("TITULO :" + libro.titulo()), DockPanel.NORTH);
+		super.add(new HTML("TITULO :" + libro.getTitulo()), DockPanel.NORTH);
 	}
 
 	/**

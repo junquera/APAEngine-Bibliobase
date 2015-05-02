@@ -4,19 +4,18 @@ import java.util.List;
 
 import com.google.gwt.user.client.rpc.AsyncCallback;
 
-import es.junquera.bibliobase.server.Libro;
+import es.junquera.bibliobase.server.libro.Libro;
 
 public interface BiblioBaseServiceAsync {
 
-	void addLibro(Libro libro, AsyncCallback<List<Libro>> callback);
+	void addLibro(Libro libro, AsyncCallback<Boolean> callback);
 
-	void reservaLibro(Libro libro, AsyncCallback<List<Libro>> callback);
+	void reservaLibro(Libro libro, AsyncCallback<Boolean> callback);
 
-	void actualizaLibro(Libro libro, AsyncCallback<List<Libro>> callback);
+	void actualizaLibro(Libro libro, AsyncCallback<Boolean> callback);
 
-	void borraLibro(Libro libro, AsyncCallback<List<Libro>> callback);
+	void borraLibro(Libro libro, AsyncCallback<Boolean> callback);
 
 	void getListaLibros(Void v, AsyncCallback<Libro[]> callback);
-	
-	void demo(Void v, AsyncCallback<Libro> callback);
+
 }

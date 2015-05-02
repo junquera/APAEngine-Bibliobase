@@ -1,6 +1,5 @@
 package es.junquera.bibliobase.client;
 
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,7 +18,8 @@ import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.*;
 
 import es.junquera.bibliobase.PMF;
-import es.junquera.bibliobase.server.Libro;
+import es.junquera.bibliobase.server.Probando;
+import es.junquera.bibliobase.server.libro.Libro;
 
 /**
  * Entry point classes define <code>onModuleLoad()</code>.
@@ -37,25 +37,17 @@ public class BiblioBase implements EntryPoint {
 	 * Create a remote service proxy to talk to the server-side Greeting
 	 * service.
 	 */
-	private final BiblioBaseServiceAsync biblioBaseService = GWT
-			.create(BiblioBaseService.class);
+	/*
+	 * private final BiblioBaseServiceAsync biblioBaseService = GWT
+	 * .create(BiblioBaseService.class);
+	 */
 
 	/**
 	 * This is the entry point method.
 	 */
 	public void onModuleLoad() {
-		biblioBaseService.demo(null, new AsyncCallback<Libro>() {
 
-			@Override
-			public void onSuccess(Libro result) {
-				RootPanel.get("libros").add(new LibroUI(result));
-			}
+		RootPanel.get("libros").add(new LibroUI(new Libro("Prueba 1", null, 0, null, null, 0, null, null, null, null, 0)));
 
-			@Override
-			public void onFailure(Throwable caught) {
-				// TODO Auto-generated method stub
-
-			}
-		});
 	}
 }
