@@ -17,4 +17,6 @@ public interface BiblioBaseServiceAsync {
 	void borraLibro(Libro libro, AsyncCallback<List<Libro>> callback);
 
 	void getListaLibros(Void v, AsyncCallback<Libro[]> callback);
+	
+	void demo(Void v, AsyncCallback<Libro> callback);
 }

@@ -7,7 +7,6 @@ import javax.jdo.PersistenceManager
 import javax.jdo.PersistenceManagerFactory
 import javax.jdo.Query
 
-import es.junquera.bibliobase.BiblioBaseServlet
 import es.junquera.bibliobase.PMF;
 import es.junquera.bibliobase.client.BiblioBaseService
 
@@ -22,6 +21,10 @@ class BiblioBaseServiceImpl extends RemoteServiceServlet with BiblioBaseService 
       pm.close();
     }
     return true
+  }
+  
+  def demo(): Libro = {
+    return  new Libro("PRUEBA1", null, null, null, null, null, null, null, null, null, null)
   }
 
   def reservaLibro(libro: Libro): Boolean = {

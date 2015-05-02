@@ -20,13 +20,11 @@ import com.google.gwt.user.client.ui.*;
 
 import es.junquera.bibliobase.PMF;
 import es.junquera.bibliobase.server.Libro;
-import es.junquera.bibliobase.shared.FieldVerifier;
 
 /**
  * Entry point classes define <code>onModuleLoad()</code>.
  */
 public class BiblioBase implements EntryPoint {
-
 	/**
 	 * The message displayed to the user when the server cannot be reached or
 	 * returns an error.
@@ -46,5 +44,18 @@ public class BiblioBase implements EntryPoint {
 	 * This is the entry point method.
 	 */
 	public void onModuleLoad() {
+		biblioBaseService.demo(null, new AsyncCallback<Libro>() {
+
+			@Override
+			public void onSuccess(Libro result) {
+				RootPanel.get("libros").add(new LibroUI(result));
+			}
+
+			@Override
+			public void onFailure(Throwable caught) {
+				// TODO Auto-generated method stub
+
+			}
+		});
 	}
 }

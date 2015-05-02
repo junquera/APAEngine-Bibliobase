@@ -1,0 +1,3 @@
+<module>
+	<source path="server" includes="Libro.scala"/>
+</module>

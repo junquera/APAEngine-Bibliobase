@@ -16,4 +16,6 @@ public interface BiblioBaseService extends RemoteService {
 	boolean borraLibro(Libro libro);
 
 	Libro[] getListaLibros();
+
+	Libro demo();
 }

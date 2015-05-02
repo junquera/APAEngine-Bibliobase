@@ -8,7 +8,7 @@
   <!-- Servlets -->
   <servlet>
     <servlet-name>service</servlet-name>
-    <servlet-class>es.junquera.bibliobase.server.BiblioBaseService</servlet-class>
+    <servlet-class>es.junquera.bibliobase.server.BiblioBaseServiceImpl</servlet-class>
   </servlet>
   
   <servlet-mapping>
