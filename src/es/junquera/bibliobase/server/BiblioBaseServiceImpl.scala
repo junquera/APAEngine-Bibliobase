@@ -9,7 +9,6 @@ import javax.jdo.Query
 
 import es.junquera.bibliobase.PMF
 import es.junquera.bibliobase.client.BiblioBaseService
-import es.junquera.bibliobase.server.libro.Libro
 
 class BiblioBaseServiceImpl extends RemoteServiceServlet with BiblioBaseService {
 

@@ -1,11 +1,9 @@
-package es.junquera.bibliobase.server.libro;
+package es.junquera.bibliobase.server;
 
 import java.util.Date;
 import java.util.List;
 
 import javax.jdo.annotations.*;
-
-import es.junquera.bibliobase.BiblioException;
 
 @PersistenceCapable
 public class Libro {

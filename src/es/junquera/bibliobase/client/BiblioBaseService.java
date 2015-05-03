@@ -5,7 +5,7 @@ import java.util.List;
 import com.google.gwt.user.client.rpc.RemoteService;
 import com.google.gwt.user.client.rpc.RemoteServiceRelativePath;
 
-import es.junquera.bibliobase.server.libro.Libro;
+import es.junquera.bibliobase.server.Libro;
 
 @RemoteServiceRelativePath("/service")
 public interface BiblioBaseService extends RemoteService {

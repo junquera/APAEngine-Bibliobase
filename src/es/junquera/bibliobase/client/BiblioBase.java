@@ -18,13 +18,14 @@ import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.*;
 
 import es.junquera.bibliobase.PMF;
+import es.junquera.bibliobase.server.Libro;
 import es.junquera.bibliobase.server.Probando;
-import es.junquera.bibliobase.server.libro.Libro;
 
 /**
  * Entry point classes define <code>onModuleLoad()</code>.
  */
 public class BiblioBase implements EntryPoint {
+	Libro l = new Libro("Juan Carlos Monedero: Famoso en el mundo entero", new ArrayList<String>(), 0, "Se le quedó estrecho...", new java.util.Date(2, 5, 2015), 0, "P0D3M05", "https://pbs.twimg.com/media/Bw9J_XJCcAAiKKC.jpg", "CCCP", "https://pbs.twimg.com/media/Bw9J_XJCcAAiKKC.jpg", 1);
 	/**
 	 * The message displayed to the user when the server cannot be reached or
 	 * returns an error.
@@ -46,8 +47,7 @@ public class BiblioBase implements EntryPoint {
 	 * This is the entry point method.
 	 */
 	public void onModuleLoad() {
-
-		RootPanel.get("libros").add(new LibroUI(new Libro("Prueba 1", null, 0, null, null, 0, null, null, null, null, 0)));
+		RootPanel.get("libros").add(new LibroUI(l));
 
 	}
 }

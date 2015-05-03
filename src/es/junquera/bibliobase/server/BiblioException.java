@@ -1,4 +1,4 @@
-package es.junquera.bibliobase;
+package es.junquera.bibliobase.server;
 
 public class BiblioException extends Exception {
 	public BiblioException(String message){
