@@ -21,7 +21,7 @@ public class BiblioBase implements EntryPoint {
 		l.setAutores(new ArrayList<String>());
 		l.setPaginas(0);
 		l.setResumen("Se le quedó estrecho...");
-		l.setFechaPublicacion(new java.util.Date(2, 5, 2015));
+		l.setFechaPublicacion("02/05/2015");
 		l.setEdicion(0);
 		l.setIsbn("P0D3M05");
 		l.setUrl("https://pbs.twimg.com/media/Bw9J_XJCcAAiKKC.jpg");
@@ -49,6 +49,7 @@ public class BiblioBase implements EntryPoint {
 	/**
 	 * This is the entry point method.
 	 */
+	@Override
 	public void onModuleLoad() {
 		creaLibro();
 

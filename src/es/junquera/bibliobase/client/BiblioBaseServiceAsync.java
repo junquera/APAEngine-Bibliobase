@@ -1,7 +1,5 @@
 package es.junquera.bibliobase.client;
 
-import java.util.List;
-
 import com.google.gwt.user.client.rpc.AsyncCallback;
 
 import es.junquera.bibliobase.server.Libro;

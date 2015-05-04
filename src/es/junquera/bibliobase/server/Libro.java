@@ -6,12 +6,9 @@ import java.util.List;
 
 import javax.jdo.annotations.*;
 
+@SuppressWarnings("serial")
 @PersistenceCapable()
 public class Libro implements Serializable {
-
-	public void setIsbn(String isbn) {
-		this.isbn = isbn;
-	}
 
 	@Persistent
 	private String titulo;
@@ -22,7 +19,7 @@ public class Libro implements Serializable {
 	@Persistent
 	private String resumen;
 	@Persistent
-	private Date fechaPublicacion;
+	private String fechaPublicacion;
 	@Persistent
 	private int paginas;
 	@PrimaryKey
@@ -69,11 +66,11 @@ public class Libro implements Serializable {
 		this.resumen = resumen;
 	}
 
-	public Date getFechaPublicacion() {
+	public String getFechaPublicacion() {
 		return fechaPublicacion;
 	}
 
-	public void setFechaPublicacion(Date fechaPublicacion) {
+	public void setFechaPublicacion(String fechaPublicacion) {
 		this.fechaPublicacion = fechaPublicacion;
 	}
 
@@ -87,6 +84,10 @@ public class Libro implements Serializable {
 
 	public String getIsbn() {
 		return isbn;
+	}
+
+	public void setIsbn(String isbn) {
+		this.isbn = isbn;
 	}
 
 	public String getUrl() {

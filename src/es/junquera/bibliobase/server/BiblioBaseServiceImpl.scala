@@ -2,10 +2,7 @@ package es.junquera.bibliobase.server
 
 import com.google.gwt.user.server.rpc.RemoteServiceServlet
 
-import javax.jdo.JDOHelper
-import javax.jdo.PersistenceManager
-import javax.jdo.PersistenceManagerFactory
-import javax.jdo.Query
+import javax.jdo._
 
 import es.junquera.bibliobase.PMF
 import es.junquera.bibliobase.client.BiblioBaseService
@@ -17,8 +14,9 @@ class BiblioBaseServiceImpl extends RemoteServiceServlet with BiblioBaseService 
     try {
       pm.getObjectById(libro.getIsbn())
     } catch {
-      case e: Exception => pm.makePersistent(libro)
-      return true
+      case e: Exception =>
+        pm.makePersistent(libro)
+        return true
     } finally {
       pm.close();
     }
@@ -60,7 +58,7 @@ class BiblioBaseServiceImpl extends RemoteServiceServlet with BiblioBaseService 
   def getListaLibros(): Array[Libro] = {
     val pm: PersistenceManager = PMF.get().getPersistenceManager()
     val query: Query = pm.newQuery(classOf[Libro])
-    query.setFilter("*")
+    query.setFilter("'*'")
     val libros: Array[Libro] = (query.execute().asInstanceOf[List[Libro]]).toArray
     query.closeAll()
     return libros
