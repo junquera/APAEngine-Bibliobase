@@ -1,5 +1,9 @@
 package es.junquera.bibliobase.client;
 
+import com.google.gwt.event.dom.client.ClickEvent;
+import com.google.gwt.event.dom.client.ClickHandler;
+import com.google.gwt.event.dom.client.KeyUpEvent;
+import com.google.gwt.event.dom.client.KeyUpHandler;
 import com.google.gwt.user.client.ui.Image;
 import com.google.gwt.user.client.ui.DockPanel;
 import com.google.gwt.user.client.ui.HTML;
@@ -15,6 +19,7 @@ public class LibroUI extends DockPanel {
 
 	public LibroUI(Libro libro) {
 		super();
+		super.addStyleName("libro");
 		HorizontalPanel hp1 = new HorizontalPanel();
 		titulo.setText(libro.getTitulo());
 		titulo.setReadOnly(true);
@@ -26,14 +31,14 @@ public class LibroUI extends DockPanel {
 		foto = new Image(libro.getFoto());
 		foto.setWidth("100px");
 		super.add(foto, DockPanel.WEST);
-		
+
 		super.add(new HTML("CENTER"), DockPanel.CENTER);
 		super.add(new HTML("EAST"), DockPanel.EAST);
 		super.add(new HTML("SOUTH"), DockPanel.SOUTH);
 
-
 	}
 
+	
 	/**
 	 * var titulo: String,
 	 * 

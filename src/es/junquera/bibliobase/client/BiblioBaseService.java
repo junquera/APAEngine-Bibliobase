@@ -7,7 +7,7 @@ import com.google.gwt.user.client.rpc.RemoteServiceRelativePath;
 
 import es.junquera.bibliobase.server.Libro;
 
-@RemoteServiceRelativePath("/service")
+@RemoteServiceRelativePath("bbservice")
 public interface BiblioBaseService extends RemoteService {
 	boolean addLibro(Libro libro);
 
@@ -17,6 +17,6 @@ public interface BiblioBaseService extends RemoteService {
 
 	boolean borraLibro(Libro libro);
 
-	Libro[] getListaLibros(Void v);
+	Libro[] getListaLibros();
 
 }

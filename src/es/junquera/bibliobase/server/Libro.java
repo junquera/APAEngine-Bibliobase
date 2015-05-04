@@ -1,12 +1,18 @@
 package es.junquera.bibliobase.server;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
 import javax.jdo.annotations.*;
 
-@PersistenceCapable
-public class Libro {
+@PersistenceCapable()
+public class Libro implements Serializable {
+
+	public void setIsbn(String isbn) {
+		this.isbn = isbn;
+	}
+
 	@Persistent
 	private String titulo;
 	@Persistent
@@ -115,20 +121,7 @@ public class Libro {
 		this.copiasExistentes = copiasExistentes;
 	}
 
-	public Libro(String titulo, List<String> autores, int edicion,
-			String resumen, Date fechaPublicacion, int paginas, String isbn,
-			String url, String materia, String foto, int copiasExistentes) {
-		this.titulo = titulo;
-		this.autores = autores;
-		this.edicion = edicion;
-		this.resumen = resumen;
-		this.fechaPublicacion = fechaPublicacion;
-		this.paginas = paginas;
-		this.isbn = isbn;
-		this.url = url;
-		this.materia = materia;
-		this.foto = foto;
-		this.copiasExistentes = copiasExistentes;
+	public Libro() {
 	}
 
 	public void reserva() throws BiblioException {

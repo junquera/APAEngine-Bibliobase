@@ -15,12 +15,14 @@ class BiblioBaseServiceImpl extends RemoteServiceServlet with BiblioBaseService 
   def addLibro(libro: Libro): Boolean = {
     val pm: PersistenceManager = PMF.get().getPersistenceManager();
     try {
-      if (pm.getObjectById(libro.getIsbn()) == Nil)
-        pm.makePersistent(libro)
+      pm.getObjectById(libro.getIsbn())
+    } catch {
+      case e: Exception => pm.makePersistent(libro)
+      return true
     } finally {
       pm.close();
     }
-    return true
+    return false
   }
 
   def reservaLibro(libro: Libro): Boolean = {
@@ -55,7 +57,7 @@ class BiblioBaseServiceImpl extends RemoteServiceServlet with BiblioBaseService 
     return true
   }
 
-  def getListaLibros(v: Void): Array[Libro] = {
+  def getListaLibros(): Array[Libro] = {
     val pm: PersistenceManager = PMF.get().getPersistenceManager()
     val query: Query = pm.newQuery(classOf[Libro])
     query.setFilter("*")
