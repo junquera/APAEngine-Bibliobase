@@ -1,11 +1,10 @@
 package es.junquera.bibliobase.server
 
 import com.google.gwt.user.server.rpc.RemoteServiceServlet
-
 import javax.jdo._
-
 import es.junquera.bibliobase.PMF
 import es.junquera.bibliobase.client.BiblioBaseService
+import scala.collection.JavaConversions._
 
 class BiblioBaseServiceImpl extends RemoteServiceServlet with BiblioBaseService {
 
@@ -58,9 +57,12 @@ class BiblioBaseServiceImpl extends RemoteServiceServlet with BiblioBaseService 
   def getListaLibros(): Array[Libro] = {
     val pm: PersistenceManager = PMF.get().getPersistenceManager()
     val query: Query = pm.newQuery(classOf[Libro])
-    query.setFilter("'*'")
-    val libros: Array[Libro] = (query.execute().asInstanceOf[List[Libro]]).toArray
-    query.closeAll()
+    var result: java.util.List[Libro] = query.execute().asInstanceOf[java.util.List[Libro]]
+    result = pm.detachCopyAll(result).asInstanceOf[java.util.List[Libro]]
+    pm.close()
+    val libros: Array[Libro] = new Array[Libro](result.size)
+    for (i: Int <- 0 to result.size - 1)
+      libros.update(i, result.get(i))
     return libros
   }
 

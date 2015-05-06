@@ -1,6 +1,7 @@
 package es.junquera.bibliobase.client;
 
 import java.util.ArrayList;
+
 import com.google.gwt.core.client.*;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
@@ -81,21 +82,24 @@ public class BiblioBase implements EntryPoint {
 
 			@Override
 			public void onClick(ClickEvent event) {
-				biblioBaseService.getListaLibros(new AsyncCallback<Libro[]>() {
+				biblioBaseService
+						.getListaLibros(new AsyncCallback<Libro[]>() {
 
-					@Override
-					public void onFailure(Throwable caught) {
-						RootPanel.get("debug").add(
-								new HTML("Fallo en getListaLibros"));
-					}
+							@Override
+							public void onFailure(Throwable caught) {
+								RootPanel.get("debug").add(
+										new HTML("Fallo en getListaLibros"));
+							}
 
-					@Override
-					public void onSuccess(Libro[] result) {
-						for (Libro libro : result)
-							RootPanel.get("libros").add(new LibroUI(libro));
-						RootPanel.get("debug").add(new HTML("Conseguido ;D"));
-					}
-				});
+							@Override
+							public void onSuccess(Libro[] result) {
+								for (Libro libro : result)
+									RootPanel.get("libros").add(
+											new LibroUI(libro));
+								RootPanel.get("debug").add(
+										new HTML("Conseguido ;D"));
+							}
+						});
 			}
 		});
 		RootPanel.get("cargar").add(b2);

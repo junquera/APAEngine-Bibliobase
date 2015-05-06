@@ -7,7 +7,7 @@ import java.util.List;
 import javax.jdo.annotations.*;
 
 @SuppressWarnings("serial")
-@PersistenceCapable()
+@PersistenceCapable
 public class Libro implements Serializable {
 
 	@Persistent

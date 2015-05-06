@@ -18,7 +18,7 @@
 		<property name="javax.jdo.option.RetainValues" value="true"/>
 		<property name="datanucleus.appengine.autoCreateDatastoreTxns" value="true"/>
 
-		<property name="datanucleus.appengine.datastoreReadConsistency" value="EVENTUAL"/>
+		<property name="datanucleus.appengine.datastoreReadConsistency" value="	"/>
 		<property name="javax.jdo.option.DatastoreReadTimeoutMillis" value="5000"/>
 		<property name="javax.jdo.option.DatastoreWriteTimeoutMillis" value="10000"/>
 		<property name="datanucleus.singletonPMFForName" value="true"/>
