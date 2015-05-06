@@ -47,6 +47,10 @@ public class BiblioBase implements EntryPoint {
 	private final BiblioBaseServiceAsync biblioBaseService = GWT
 			.create(BiblioBaseService.class);
 
+	private void alerta(String alerta) {
+	
+	}
+
 	/**
 	 * This is the entry point method.
 	 */
@@ -70,6 +74,8 @@ public class BiblioBase implements EntryPoint {
 
 					@Override
 					public void onSuccess(Boolean result) {
+						if (!result)
+							alerta("El libro ya exite en la base de datos");
 					}
 				});
 			}
@@ -82,24 +88,21 @@ public class BiblioBase implements EntryPoint {
 
 			@Override
 			public void onClick(ClickEvent event) {
-				biblioBaseService
-						.getListaLibros(new AsyncCallback<Libro[]>() {
+				biblioBaseService.getListaLibros(new AsyncCallback<Libro[]>() {
 
-							@Override
-							public void onFailure(Throwable caught) {
-								RootPanel.get("debug").add(
-										new HTML("Fallo en getListaLibros"));
-							}
+					@Override
+					public void onFailure(Throwable caught) {
+						RootPanel.get("debug").add(
+								new HTML("Fallo en getListaLibros"));
+					}
 
-							@Override
-							public void onSuccess(Libro[] result) {
-								for (Libro libro : result)
-									RootPanel.get("libros").add(
-											new LibroUI(libro));
-								RootPanel.get("debug").add(
-										new HTML("Conseguido ;D"));
-							}
-						});
+					@Override
+					public void onSuccess(Libro[] result) {
+						for (Libro libro : result)
+							RootPanel.get("libros").add(new LibroUI(libro));
+						RootPanel.get("debug").add(new HTML("Conseguido ;D"));
+					}
+				});
 			}
 		});
 		RootPanel.get("cargar").add(b2);
@@ -114,6 +117,17 @@ public class BiblioBase implements EntryPoint {
 			}
 		});
 		RootPanel.get("cargar").add(b3);
+
+		Button ba = new Button();
+		ba.setText("Alerta");
+		ba.addClickHandler(new ClickHandler() {
+
+			@Override
+			public void onClick(ClickEvent event) {
+				alerta("¡ALERTA!");
+			}
+		});
+		RootPanel.get("cargar").add(ba);
 
 	}
 }

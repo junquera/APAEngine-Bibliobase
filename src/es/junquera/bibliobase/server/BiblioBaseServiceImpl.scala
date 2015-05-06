@@ -11,7 +11,7 @@ class BiblioBaseServiceImpl extends RemoteServiceServlet with BiblioBaseService 
   def addLibro(libro: Libro): Boolean = {
     val pm: PersistenceManager = PMF.get().getPersistenceManager();
     try {
-      pm.getObjectById(libro.getIsbn())
+      val l = pm.getObjectById(classOf[Libro], libro.getIsbn())
     } catch {
       case e: Exception =>
         pm.makePersistent(libro)
@@ -25,7 +25,7 @@ class BiblioBaseServiceImpl extends RemoteServiceServlet with BiblioBaseService 
   def reservaLibro(libro: Libro): Boolean = {
     val pm: PersistenceManager = PMF.get().getPersistenceManager();
     try {
-      val l = pm.getObjectById(libro.getIsbn())
+      val l = pm.getObjectById(classOf[Libro], libro.getIsbn())
     } finally {
       pm.close();
     }
@@ -35,7 +35,7 @@ class BiblioBaseServiceImpl extends RemoteServiceServlet with BiblioBaseService 
   def actualizaLibro(libro: Libro): Boolean = {
     val pm: PersistenceManager = PMF.get().getPersistenceManager();
     try {
-      val l: Libro = pm.getObjectById(libro.getIsbn()).asInstanceOf[Libro];
+      val l: Libro = pm.getObjectById(classOf[Libro], libro.getIsbn()).asInstanceOf[Libro];
       pm.deletePersistent(l)
       pm.makePersistent(libro)
     } finally {
