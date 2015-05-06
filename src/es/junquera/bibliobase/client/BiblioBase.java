@@ -3,6 +3,7 @@ package es.junquera.bibliobase.client;
 import java.util.ArrayList;
 
 import com.google.gwt.core.client.*;
+import com.google.gwt.dom.client.Element;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.user.client.rpc.AsyncCallback;
@@ -44,11 +45,12 @@ public class BiblioBase implements EntryPoint {
 	 * service.
 	 */
 
-	private final BiblioBaseServiceAsync biblioBaseService = GWT
+	protected static final BiblioBaseServiceAsync biblioBaseService = GWT
 			.create(BiblioBaseService.class);
 
-	private void alerta(String alerta) {
-	
+	protected static void alerta(String alerta) {
+		RootPanel.get("debug").clear();
+		RootPanel.get("debug").add(new HTML(alerta));
 	}
 
 	/**
@@ -68,8 +70,7 @@ public class BiblioBase implements EntryPoint {
 
 					@Override
 					public void onFailure(Throwable caught) {
-						RootPanel.get("debug").add(
-								new HTML("Fallo en addLibro"));
+						alerta("Fallo en addLibro");
 					}
 
 					@Override
@@ -92,19 +93,19 @@ public class BiblioBase implements EntryPoint {
 
 					@Override
 					public void onFailure(Throwable caught) {
-						RootPanel.get("debug").add(
-								new HTML("Fallo en getListaLibros"));
+						alerta("Fallo en getListaLibros");
 					}
 
 					@Override
 					public void onSuccess(Libro[] result) {
 						for (Libro libro : result)
 							RootPanel.get("libros").add(new LibroUI(libro));
-						RootPanel.get("debug").add(new HTML("Conseguido ;D"));
+						alerta("Conseguido ;D");
 					}
 				});
 			}
 		});
+
 		RootPanel.get("cargar").add(b2);
 
 		Button b3 = new Button();
@@ -130,4 +131,5 @@ public class BiblioBase implements EntryPoint {
 		RootPanel.get("cargar").add(ba);
 
 	}
+
 }

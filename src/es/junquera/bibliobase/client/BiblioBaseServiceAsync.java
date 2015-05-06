@@ -18,4 +18,6 @@ public interface BiblioBaseServiceAsync {
 
 	void getListaLibros(AsyncCallback<Libro[]> callback);
 
+	void getLibro(String isbn, AsyncCallback<Libro> callback);
+
 }

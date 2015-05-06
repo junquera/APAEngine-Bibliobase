@@ -39,7 +39,7 @@ class BiblioBaseServiceImpl extends RemoteServiceServlet with BiblioBaseService 
       pm.deletePersistent(l)
       pm.makePersistent(libro)
     } finally {
-      pm.close();
+      pm.close
     }
     return true
   }
@@ -49,9 +49,19 @@ class BiblioBaseServiceImpl extends RemoteServiceServlet with BiblioBaseService 
     try {
       pm.deletePersistent(libro)
     } finally {
-      pm.close();
+      pm.close
     }
     return true
+  }
+
+  def getLibro(isbn: String): Libro = {
+    val pm: PersistenceManager = PMF.get().getPersistenceManager();
+    try {
+      val l: Libro = pm.getObjectById(classOf[Libro], isbn).asInstanceOf[Libro]
+      return l
+    } finally {
+      pm.close
+    }
   }
 
   def getListaLibros(): Array[Libro] = {
