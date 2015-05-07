@@ -1,4 +1,3 @@
-<!-- http://www.vogella.com/tutorials/GWTModules/article.html -->
 <module>
 	<inherits name='com.google.gwt.user.User' />
 	<source path="server"></source>

@@ -2,6 +2,10 @@ package es.junquera.bibliobase.client;
 
 import java.util.ArrayList;
 
+import com.google.api.server.spi.auth.common.User;
+import com.google.appengine.api.oauth.OAuthRequestException;
+import com.google.appengine.api.oauth.OAuthService;
+import com.google.appengine.api.oauth.OAuthServiceFactory;
 import com.google.gwt.core.client.*;
 import com.google.gwt.dom.client.Element;
 import com.google.gwt.event.dom.client.ClickEvent;
@@ -26,6 +30,7 @@ public class BiblioBase implements EntryPoint {
 		l.setFechaPublicacion("02/05/2015");
 		l.setEdicion(0);
 		l.setIsbn("P0D3M05");
+		l.setUrl("");
 		l.setUrl("https://pbs.twimg.com/media/Bw9J_XJCcAAiKKC.jpg");
 		l.setMateria("CCCP");
 		l.setFoto("https://pbs.twimg.com/media/Bw9J_XJCcAAiKKC.jpg");
@@ -58,78 +63,69 @@ public class BiblioBase implements EntryPoint {
 	 */
 	@Override
 	public void onModuleLoad() {
-		creaLibro();
+		final ToggleButton administrar = new ToggleButton("Ver como administrador", "Ver como usuario");
+		administrar.addClickHandler(new ClickHandler() {
+			
+			@Override
+			public void onClick(ClickEvent event) {
+				if(administrar.isDown())
+					cargarListaLibros(true);
+				else
+					cargarListaLibros(false);
+			}
+		});
+
+		RootPanel.get("cargar").add(administrar);
 
 		Button b = new Button();
-		b.setText("CARGAR EN DB");
+		b.setText("Crear nuevo libro");
 		b.addClickHandler(new ClickHandler() {
 
 			@Override
 			public void onClick(ClickEvent event) {
-				biblioBaseService.addLibro(l, new AsyncCallback<Boolean>() {
 
-					@Override
-					public void onFailure(Throwable caught) {
-						alerta("Fallo en addLibro");
-					}
+				PopupPanel pp = new PopupPanel();
+				pp.add(new LibroUICrear());
 
-					@Override
-					public void onSuccess(Boolean result) {
-						if (!result)
-							alerta("El libro ya exite en la base de datos");
-					}
-				});
 			}
 		});
 		RootPanel.get("cargar").add(b);
 
-		Button b2 = new Button();
-		b2.setText("CARGAR DE DB");
-		b2.addClickHandler(new ClickHandler() {
+		Button reload = new Button();
+		reload.setText("Actualizar lista de libros");
+		reload.addClickHandler(new ClickHandler() {
 
 			@Override
 			public void onClick(ClickEvent event) {
-				biblioBaseService.getListaLibros(new AsyncCallback<Libro[]>() {
-
-					@Override
-					public void onFailure(Throwable caught) {
-						alerta("Fallo en getListaLibros");
-					}
-
-					@Override
-					public void onSuccess(Libro[] result) {
-						for (Libro libro : result)
-							RootPanel.get("libros").add(new LibroUI(libro));
-						alerta("Conseguido ;D");
-					}
-				});
+				cargarListaLibros(administrar.isDown());
 			}
 		});
 
-		RootPanel.get("cargar").add(b2);
+		RootPanel.get("cargar").add(reload);
 
-		Button b3 = new Button();
-		b3.setText("CARGAR SIN DB");
-		b3.addClickHandler(new ClickHandler() {
+		cargarListaLibros(administrar.isDown());
+	}
+
+	public void cargarListaLibros(final boolean administrador) {
+		biblioBaseService.getListaLibros(new AsyncCallback<Libro[]>() {
 
 			@Override
-			public void onClick(ClickEvent event) {
-				RootPanel.get("libros").add(new LibroUI(l));
+			public void onFailure(Throwable caught) {
+				alerta("Fallo en getListaLibros");
 			}
-		});
-		RootPanel.get("cargar").add(b3);
-
-		Button ba = new Button();
-		ba.setText("Alerta");
-		ba.addClickHandler(new ClickHandler() {
 
 			@Override
-			public void onClick(ClickEvent event) {
-				alerta("¡ALERTA!");
+			public void onSuccess(Libro[] result) {
+				RootPanel.get("libros").clear();
+				for (Libro libro : result)
+					if(administrador)
+						RootPanel.get("libros").add(new LibroUIAdmin(libro));
+					else
+						RootPanel.get("libros").add(new LibroUI(libro));
+
+				alerta("Conseguido ;D");
 			}
 		});
-		RootPanel.get("cargar").add(ba);
-
 	}
 
 }

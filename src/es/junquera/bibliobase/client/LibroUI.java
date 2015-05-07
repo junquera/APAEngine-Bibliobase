@@ -3,210 +3,140 @@ package es.junquera.bibliobase.client;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.google.gwt.event.dom.client.ClickEvent;
-import com.google.gwt.event.dom.client.ClickHandler;
-import com.google.gwt.user.client.rpc.AsyncCallback;
-import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Image;
 import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.HorizontalPanel;
 import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.VerticalPanel;
-import com.google.gwt.user.client.ui.Widget;
 
 import es.junquera.bibliobase.server.Libro;
 
+/**
+ * Los problemas vienen de incongruencias entre init() y actualizaLibro()
+ * 
+ * @author Junquera
+ *
+ */
 public class LibroUI extends VerticalPanel {
 
-	private Libro libro;
+	protected Libro libro;
+	List<TextBox> editables = new ArrayList<TextBox>();
 
-	private Image foto;
-	private TextBox titulo = new TextBox();
-	private TextBox resumen = new TextBox();
-	private TextBox foto_url = new TextBox();
-	private TextBox url = new TextBox();
-	private TextBox nPags = new TextBox();
-	private TextBox nCopias = new TextBox();
-	private TextBox materia = new TextBox();
-	private Button editar = new Button("Editar");
-	private Button guardarEdicion = new Button("Guardar");
-	private Button cancelarEdicion = new Button("Cancelar");
-	private Button reservar = new Button("Reservar");
-	private Button devolver = new Button("Devolver");
-	private List<TextBox> editables = new ArrayList<TextBox>();
+	Image foto;
+	TextBox titulo = new TextBox();
+	TextBox resumen = new TextBox();
+	TextBox foto_url = new TextBox();
+	TextBox url = new TextBox();
+	TextBox nPags = new TextBox();
+	TextBox nCopias = new TextBox();
+	TextBox materia = new TextBox();
+	TextBox autores = new TextBox();
+	TextBox isbn = new TextBox();
 
-	private void init() {
-		super.clear();
-		editables.add(titulo);
+	VerticalPanel cabecera = new VerticalPanel();
+	HorizontalPanel panelTitulo = new HorizontalPanel();
+	HorizontalPanel cuerpo = new HorizontalPanel();
+	VerticalPanel panelFoto = new VerticalPanel();
+	VerticalPanel more = new VerticalPanel();
 
-		titulo.setText(libro.getTitulo());
-		titulo.setSize("100%", "100%");
-		titulo.setWidth("500px");
+	protected void init() {
+		editable(true);
 
-		VerticalPanel cabecera = new VerticalPanel();
-		HorizontalPanel panelTitulo = new HorizontalPanel();
-		panelTitulo.add(titulo);
-		panelTitulo.add(new HTML("	ISBN: " + libro.getIsbn()));
-		editables.add(titulo);
-		cabecera.add(panelTitulo);
-		url.setText(libro.getUrl());
-		editables.add(url);
-		cabecera.add(url);
+		this.isbn.setText(this.libro.getIsbn());
 
-		HorizontalPanel cuerpo = new HorizontalPanel();
-		VerticalPanel panelFoto = new VerticalPanel();
-		foto = new Image(libro.getFoto());
-		foto.setWidth("100px");
-		panelFoto.add(foto);
-		foto_url.setText(libro.getFoto());
-		foto_url.setVisible(false);
-		editables.add(foto_url);
-		panelFoto.add(foto_url);
-		cuerpo.add(panelFoto);
+		this.titulo.setText(this.libro.getTitulo());
 
-		resumen.setText(libro.getResumen());
-		editables.add(resumen);
-		cuerpo.add(resumen);
+		this.url.setText(this.libro.getUrl());
 
-		VerticalPanel more = new VerticalPanel();
+		this.nPags.setText(this.libro.getPaginas() + "");
 
-		nPags.setText(libro.getPaginas() + "");
-		editables.add(nPags);
+		this.materia.setText(this.libro.getMateria());
 
-		nCopias.setText(libro.getCopiasExistentes() + "");
-		editables.add(nCopias);
+		this.resumen.setText(this.libro.getResumen());
 
-		materia.setText(libro.getMateria());
-		editables.add(materia);
+		this.nCopias.setText(this.libro.getCopiasExistentes() + "");
 
-		more.add(new HTML("Número de páginas:"));
-		more.add(nPags);
-		more.add(new HTML("Número de copias:"));
-		more.add(nCopias);
-		more.add(new HTML("Materia:"));
-		more.add(materia);
+		String aut = "";
+		for (String s : this.libro.getAutores())
+			aut += s + "\n";
+		this.autores.setText(aut);
 
-		cuerpo.add(more);
+		this.foto.setUrl("");
+		this.foto.setUrl(this.libro.getFoto());
 
-		super.add(cabecera);
-		super.add(cuerpo);
+		this.foto_url.setText(this.libro.getFoto());
 
-		HorizontalPanel gestion = new HorizontalPanel();
-		reservar.addClickHandler(new ClickHandler() {
+		editable(false);
 
-			@Override
-			public void onClick(ClickEvent event) {
-				nCopias.setText(Integer.parseInt(nCopias.getText()) - 1 + "");
-				actualizaLibro();
-			}
-		});
-		reservar.setEnabled(libro.getCopiasExistentes() > 0);
-
-		devolver.addClickHandler(new ClickHandler() {
-
-			@Override
-			public void onClick(ClickEvent event) {
-				nCopias.setText(Integer.parseInt(nCopias.getText()) + 1 + "");
-				actualizaLibro();
-			}
-		});
-
-		gestion.add(reservar);
-		gestion.add(devolver);
-		super.add(gestion);
-
-		HorizontalPanel botones = new HorizontalPanel();
-		editar.addClickHandler(new ClickHandler() {
-
-			@Override
-			public void onClick(ClickEvent event) {
-				editable(true);
-			}
-		});
-
-		guardarEdicion.setVisible(false);
-		guardarEdicion.addClickHandler(new ClickHandler() {
-
-			@Override
-			public void onClick(ClickEvent event) {
-				editable(false);
-				actualizaLibro();
-			}
-		});
-
-		cancelarEdicion.setVisible(false);
-		cancelarEdicion.addClickHandler(new ClickHandler() {
-
-			@Override
-			public void onClick(ClickEvent event) {
-				editable(false);
-				init();
-			}
-		});
-
-		botones.add(editar);
-		botones.add(guardarEdicion);
-		botones.add(cancelarEdicion);
-		super.add(botones);
-
-		for (TextBox tb : editables)
-			tb.setReadOnly(true);
-		editar.setEnabled(true);
 	}
 
-	public LibroUI(Libro libro) {
+	public LibroUI(final Libro libro) {
 		super();
 		super.addStyleName("libro");
 		this.libro = libro;
+
+		this.panelTitulo.add(new HTML("	Titulo: "));
+		this.panelTitulo.add(titulo);
+
+		this.panelTitulo.add(new HTML("	ISBN: "));
+		this.panelTitulo.add(isbn);
+
+		this.cabecera.add(this.panelTitulo);
+
+		this.panelTitulo.add(new HTML("	URL: "));
+		this.cabecera.add(this.url);
+
+		this.foto = new Image();
+		this.foto.setWidth("100px");
+		panelFoto.add(this.foto);
+		this.foto_url.setVisible(false);
+		panelFoto.add(this.foto_url);
+		cuerpo.add(panelFoto);
+
+		this.cuerpo.add(this.resumen);
+
+		this.more.add(new HTML("Número de páginas:"));
+		this.more.add(this.nPags);
+		this.more.add(new HTML("Número de copias:"));
+		this.more.add(this.nCopias);
+		this.more.add(new HTML("Materia:"));
+		this.more.add(this.materia);
+
+		this.cuerpo.add(new HTML("	Autores: "));
+		this.cuerpo.add(this.autores);
+
+		this.cuerpo.add(this.more);
+
+		super.add(this.cabecera);
+		super.add(this.cuerpo);
+
+		this.editables.add(this.nPags);
+		this.editables.add(this.nCopias);
+		this.editables.add(this.materia);
+		this.editables.add(this.resumen);
+		this.editables.add(this.foto_url);
+		this.editables.add(this.titulo);
+		this.editables.add(this.url);
+		this.editables.add(this.isbn);
+		this.editables.add(this.autores);
+		
 		init();
+
 	}
 
-	private void editable(boolean editable) {
+	protected void borrarLibro() {
+		super.clear();
+	}
+
+	protected void editable(boolean editable) {
 		if (editable) {
 			for (TextBox tb : editables)
 				tb.setReadOnly(false);
-			editar.setEnabled(false);
 			foto_url.setVisible(true);
-			guardarEdicion.setVisible(true);
-			cancelarEdicion.setVisible(true);
 		} else {
 			for (TextBox tb : editables)
 				tb.setReadOnly(true);
-			editar.setEnabled(true);
 			foto_url.setVisible(false);
-			guardarEdicion.setVisible(false);
-			cancelarEdicion.setVisible(false);
 		}
-	}
-
-	private void actualizaLibro() {
-		final Libro nuevo = new Libro();
-		nuevo.setTitulo(this.titulo.getText());
-		nuevo.setAutores(libro.getAutores()); //
-		nuevo.setCopiasExistentes(Integer.parseInt(this.nCopias.getText()));
-		nuevo.setEdicion(libro.getEdicion()); //
-		nuevo.setFechaPublicacion(libro.getFechaPublicacion()); //
-		nuevo.setFoto(this.foto_url.getText());
-		nuevo.setMateria(this.materia.getText());
-		nuevo.setPaginas(Integer.parseInt(this.nPags.getText()));
-		nuevo.setResumen(this.resumen.getText());
-		nuevo.setUrl(this.url.getText());
-		nuevo.setIsbn(libro.getIsbn());
-		BiblioBase.biblioBaseService.actualizaLibro(nuevo,
-				new AsyncCallback<Boolean>() {
-
-					@Override
-					public void onSuccess(Boolean result) {
-						BiblioBase.alerta("Libro actualizado correctamente");
-						libro = nuevo;
-						init();
-					}
-
-					@Override
-					public void onFailure(Throwable caught) {
-						BiblioBase.alerta("Libro no actualizado");
-						init();
-					}
-				});
 	}
 }

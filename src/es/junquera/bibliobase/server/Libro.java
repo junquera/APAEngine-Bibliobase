@@ -128,7 +128,7 @@ public class Libro implements Serializable {
 	public void reserva() throws BiblioException {
 		synchronized (this) {
 			if (copiasExistentes > 0)
-				copiasExistentes += 1;
+				copiasExistentes--;
 			else
 				throw new BiblioException("No hay suficientes libros");
 		}
