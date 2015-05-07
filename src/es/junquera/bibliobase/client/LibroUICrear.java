@@ -45,8 +45,8 @@ public class LibroUICrear extends LibroUI {
 
 				libro.setCopiasExistentes(java.lang.Integer.parseInt(nCopias
 						.getText()));
-				libro.setEdicion(libro.getEdicion()); //
-				libro.setFechaPublicacion(libro.getFechaPublicacion()); //
+				libro.setEdicion(Integer.parseInt(edicion.getText()));
+				libro.setFechaPublicacion(fechaPublicacion.getText()); 
 				libro.setFoto(foto_url.getText());
 				libro.setMateria(materia.getText());
 				libro.setPaginas(Integer.parseInt(nPags.getText()));
