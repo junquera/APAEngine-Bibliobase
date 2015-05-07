@@ -39,9 +39,10 @@ public class LibroUI extends VerticalPanel {
 	HorizontalPanel cuerpo = new HorizontalPanel();
 	VerticalPanel panelFoto = new VerticalPanel();
 	VerticalPanel more = new VerticalPanel();
+	VerticalPanel cuerpoResumen = new VerticalPanel();
 
 	protected void init() {
-		 editable(true);
+		editable(true);
 
 		this.isbn.setText(this.libro.getIsbn());
 
@@ -58,17 +59,18 @@ public class LibroUI extends VerticalPanel {
 		this.nCopias.setText(this.libro.getCopiasExistentes() + "");
 
 		this.edicion.setText(this.libro.getEdicion() + "");
-		
+
 		String aut = "";
 		for (String s : this.libro.getAutores())
 			aut += s + ", ";
+
 		this.autores.setText(aut);
 
 		this.foto.setUrl("");
 		this.foto.setUrl(this.libro.getFoto());
 
 		this.foto_url.setText(this.libro.getFoto());
-		
+
 		this.fechaPublicacion.setText(this.libro.getFechaPublicacion());
 
 		editable(false);
@@ -79,6 +81,19 @@ public class LibroUI extends VerticalPanel {
 		super();
 		super.addStyleName("libro");
 		this.libro = libro;
+		if (this.libro.getIsbn().isEmpty()) {
+			this.libro.setAutores(new ArrayList<String>());
+			this.libro.setFoto("");
+			this.libro.setCopiasExistentes(0);
+			this.libro.setEdicion(0);
+			this.libro.setFechaPublicacion("");
+			this.libro.setIsbn("");
+			this.libro.setMateria("");
+			this.libro.setPaginas(0);
+			this.libro.setResumen("");
+			this.libro.setTitulo("");
+			this.libro.setUrl("");
+		}
 
 		this.panelTitulo.add(new HTML("	Titulo: "));
 		this.panelTitulo.add(titulo);
@@ -88,12 +103,11 @@ public class LibroUI extends VerticalPanel {
 
 		this.panelTitulo.add(new HTML("	URL: "));
 		this.panelTitulo.add(this.url);
-		
+
 		this.panelTitulo.add(new HTML("	Edición: "));
 		this.panelTitulo.add(this.edicion);
-		
-		this.cabecera.add(this.panelTitulo);
 
+		this.cabecera.add(this.panelTitulo);
 
 		this.foto = new Image();
 		this.foto.setWidth("100px");
@@ -102,7 +116,9 @@ public class LibroUI extends VerticalPanel {
 		panelFoto.add(this.foto_url);
 		cuerpo.add(panelFoto);
 
-		this.cuerpo.add(this.resumen);
+		cuerpoResumen.add(new HTML("Resumen:"));
+		cuerpoResumen.add(this.resumen);
+		this.cuerpo.add(cuerpoResumen);
 
 		this.more.add(new HTML("Número de páginas:"));
 		this.more.add(this.nPags);
@@ -132,7 +148,7 @@ public class LibroUI extends VerticalPanel {
 		this.editables.add(this.autores);
 		this.editables.add(this.fechaPublicacion);
 		this.editables.add(this.edicion);
-		
+
 		this.init();
 
 	}

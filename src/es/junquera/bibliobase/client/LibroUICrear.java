@@ -8,11 +8,11 @@ import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.HorizontalPanel;
+import com.google.gwt.user.client.ui.TextBox;
 
 import es.junquera.bibliobase.server.Libro;
 
 public class LibroUICrear extends LibroUI {
-	
 
 	HorizontalPanel gestion = new HorizontalPanel();
 	Button guardarEdicion = new Button("Guardar");
@@ -21,22 +21,28 @@ public class LibroUICrear extends LibroUI {
 	public LibroUICrear() {
 
 		super(new Libro());
-		
+		super.editable(true);
 		this.isbn.setReadOnly(false);
 
 		guardarEdicion.addClickHandler(new ClickHandler() {
 
 			@Override
 			public void onClick(ClickEvent event) {
-				Libro libro = new Libro();
 
+				for (TextBox tb : editables) {
+					if (tb.getText().isEmpty()) {
+						BiblioBase
+								.alerta("Hay que completar todos los campos.");
+						return;
+					}
+				}
 				libro.setTitulo(titulo.getText());
-				
+
 				List<String> listaAutores = new ArrayList<>();
-				for (String s : autores.getText().split("\n"))
+				for (String s : autores.getText().split(", "))
 					listaAutores.add(s);
 				libro.setAutores(listaAutores);
-				
+
 				libro.setCopiasExistentes(java.lang.Integer.parseInt(nCopias
 						.getText()));
 				libro.setEdicion(libro.getEdicion()); //
@@ -46,6 +52,7 @@ public class LibroUICrear extends LibroUI {
 				libro.setPaginas(Integer.parseInt(nPags.getText()));
 				libro.setResumen(resumen.getText());
 				libro.setUrl(url.getText());
+				libro.setIsbn(isbn.getText());
 
 				BiblioBase.biblioBaseService.addLibro(libro,
 						new AsyncCallback<Boolean>() {
@@ -54,6 +61,8 @@ public class LibroUICrear extends LibroUI {
 							public void onSuccess(Boolean result) {
 								BiblioBase
 										.alerta("Libro actualizado correctamente");
+								clear();
+								BiblioBase.cargarListaLibrosAdmin();
 							}
 
 							@Override
@@ -69,12 +78,13 @@ public class LibroUICrear extends LibroUI {
 
 			@Override
 			public void onClick(ClickEvent event) {
-				
+				clear();
 			}
 		});
 
 		gestion.add(guardarEdicion);
 		gestion.add(cancelarEdicion);
+		super.add(gestion);
 	}
 
 }

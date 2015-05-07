@@ -124,7 +124,7 @@ public class Libro implements Serializable {
 	}
 
 	public Libro() {
-		this.autores = new ArrayList<String>();
+		this.isbn = "";
 	}
 
 	public void reserva() throws BiblioException {
