@@ -12,14 +12,13 @@ import com.google.gwt.user.client.ui.VerticalPanel;
 import es.junquera.bibliobase.server.Libro;
 
 /**
- * Los problemas vienen de incongruencias entre init() y actualizaLibro()
  * 
  * @author Junquera
  *
  */
 public class LibroUI extends VerticalPanel {
 
-	protected Libro libro;
+	Libro libro;
 	List<TextBox> editables = new ArrayList<TextBox>();
 
 	Image foto;
@@ -27,8 +26,10 @@ public class LibroUI extends VerticalPanel {
 	TextBox resumen = new TextBox();
 	TextBox foto_url = new TextBox();
 	TextBox url = new TextBox();
+	TextBox fechaPublicacion = new TextBox();
 	TextBox nPags = new TextBox();
 	TextBox nCopias = new TextBox();
+	TextBox edicion = new TextBox();
 	TextBox materia = new TextBox();
 	TextBox autores = new TextBox();
 	TextBox isbn = new TextBox();
@@ -40,7 +41,7 @@ public class LibroUI extends VerticalPanel {
 	VerticalPanel more = new VerticalPanel();
 
 	protected void init() {
-		editable(true);
+		 editable(true);
 
 		this.isbn.setText(this.libro.getIsbn());
 
@@ -56,15 +57,19 @@ public class LibroUI extends VerticalPanel {
 
 		this.nCopias.setText(this.libro.getCopiasExistentes() + "");
 
+		this.edicion.setText(this.libro.getEdicion() + "");
+		
 		String aut = "";
 		for (String s : this.libro.getAutores())
-			aut += s + "\n";
+			aut += s + ", ";
 		this.autores.setText(aut);
 
 		this.foto.setUrl("");
 		this.foto.setUrl(this.libro.getFoto());
 
 		this.foto_url.setText(this.libro.getFoto());
+		
+		this.fechaPublicacion.setText(this.libro.getFechaPublicacion());
 
 		editable(false);
 
@@ -81,10 +86,14 @@ public class LibroUI extends VerticalPanel {
 		this.panelTitulo.add(new HTML("	ISBN: "));
 		this.panelTitulo.add(isbn);
 
+		this.panelTitulo.add(new HTML("	URL: "));
+		this.panelTitulo.add(this.url);
+		
+		this.panelTitulo.add(new HTML("	Edición: "));
+		this.panelTitulo.add(this.edicion);
+		
 		this.cabecera.add(this.panelTitulo);
 
-		this.panelTitulo.add(new HTML("	URL: "));
-		this.cabecera.add(this.url);
 
 		this.foto = new Image();
 		this.foto.setWidth("100px");
@@ -101,6 +110,8 @@ public class LibroUI extends VerticalPanel {
 		this.more.add(this.nCopias);
 		this.more.add(new HTML("Materia:"));
 		this.more.add(this.materia);
+		this.more.add(new HTML("Fecha de publicación:"));
+		this.more.add(this.fechaPublicacion);
 
 		this.cuerpo.add(new HTML("	Autores: "));
 		this.cuerpo.add(this.autores);
@@ -119,8 +130,10 @@ public class LibroUI extends VerticalPanel {
 		this.editables.add(this.url);
 		this.editables.add(this.isbn);
 		this.editables.add(this.autores);
+		this.editables.add(this.fechaPublicacion);
+		this.editables.add(this.edicion);
 		
-		init();
+		this.init();
 
 	}
 

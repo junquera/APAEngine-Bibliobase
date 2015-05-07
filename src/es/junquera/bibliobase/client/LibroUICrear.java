@@ -12,14 +12,16 @@ import com.google.gwt.user.client.ui.HorizontalPanel;
 import es.junquera.bibliobase.server.Libro;
 
 public class LibroUICrear extends LibroUI {
+	
 
 	HorizontalPanel gestion = new HorizontalPanel();
 	Button guardarEdicion = new Button("Guardar");
 	Button cancelarEdicion = new Button("Cancelar");
 
 	public LibroUICrear() {
-		super(new Libro());
 
+		super(new Libro());
+		
 		this.isbn.setReadOnly(false);
 
 		guardarEdicion.addClickHandler(new ClickHandler() {
@@ -45,7 +47,7 @@ public class LibroUICrear extends LibroUI {
 				libro.setResumen(resumen.getText());
 				libro.setUrl(url.getText());
 
-				BiblioBase.biblioBaseService.actualizaLibro(libro,
+				BiblioBase.biblioBaseService.addLibro(libro,
 						new AsyncCallback<Boolean>() {
 
 							@Override
@@ -67,8 +69,7 @@ public class LibroUICrear extends LibroUI {
 
 			@Override
 			public void onClick(ClickEvent event) {
-				// TODO Auto-generated method stub
-
+				
 			}
 		});
 

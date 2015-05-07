@@ -44,7 +44,7 @@ public class LibroUIAdmin extends LibroUI {
 							public void onSuccess(Boolean result) {
 								BiblioBase
 										.alerta("Libro actualizado correctamente");
-								init();
+								initAdmin();
 							}
 
 							@Override
@@ -68,7 +68,7 @@ public class LibroUIAdmin extends LibroUI {
 							public void onSuccess(Boolean result) {
 								BiblioBase
 										.alerta("Libro actualizado correctamente");
-								init();
+								initAdmin();
 							}
 
 							@Override
@@ -88,7 +88,7 @@ public class LibroUIAdmin extends LibroUI {
 
 			@Override
 			public void onClick(ClickEvent event) {
-				editable(true);
+				editableAdmin(true);
 			}
 		});
 
@@ -97,7 +97,7 @@ public class LibroUIAdmin extends LibroUI {
 
 			@Override
 			public void onClick(ClickEvent event) {
-				editable(false);
+				editableAdmin(false);
 				actualizaLibro();
 			}
 		});
@@ -107,8 +107,8 @@ public class LibroUIAdmin extends LibroUI {
 
 			@Override
 			public void onClick(ClickEvent event) {
-				editable(false);
-				init();
+				editableAdmin(false);
+				initAdmin();
 			}
 		});
 
@@ -141,25 +141,27 @@ public class LibroUIAdmin extends LibroUI {
 		botones.add(this.borrarLibro);
 		super.add(botones);
 
-		init();
+		this.initAdmin();
 	}
 
-	protected void init() {
-		editable(false);
+	
+	protected void initAdmin() {
+		super.init();
 		this.reservar.setEnabled(super.libro.getCopiasExistentes() > 0);
+		editableAdmin(false);
 	}
 
 	private void actualizaLibro() {
 		libro.setTitulo(titulo.getText());
 
 		List<String> listaAutores = new ArrayList<>();
-		for (String s : autores.getText().split("\n"))
+		for (String s : autores.getText().split(", "))
 			listaAutores.add(s);
 		libro.setAutores(listaAutores);
 
 		libro.setCopiasExistentes(java.lang.Integer.parseInt(nCopias.getText()));
-		libro.setEdicion(libro.getEdicion()); //
-		libro.setFechaPublicacion(libro.getFechaPublicacion()); //
+		libro.setEdicion(Integer.parseInt(edicion.getText())); 
+		libro.setFechaPublicacion(fechaPublicacion.getText()); 
 		libro.setFoto(foto_url.getText());
 		libro.setMateria(materia.getText());
 		libro.setPaginas(Integer.parseInt(nPags.getText()));
@@ -179,11 +181,11 @@ public class LibroUIAdmin extends LibroUI {
 						BiblioBase.alerta("Libro no actualizado");
 					}
 				});
-		init();
+		this.initAdmin();
 
 	}
 
-	protected void editable(boolean editable) {
+	protected void editableAdmin(boolean editable) {
 		super.editable(editable);
 		if (editable) {
 			this.editar.setEnabled(false);
@@ -202,6 +204,7 @@ public class LibroUIAdmin extends LibroUI {
 			this.borrarLibro.setVisible(false);
 
 		}
+		this.isbn.setReadOnly(true);
 	}
 
 }

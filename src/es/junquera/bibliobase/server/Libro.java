@@ -1,6 +1,7 @@
 package es.junquera.bibliobase.server;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -123,6 +124,7 @@ public class Libro implements Serializable {
 	}
 
 	public Libro() {
+		this.autores = new ArrayList<String>();
 	}
 
 	public void reserva() throws BiblioException {
