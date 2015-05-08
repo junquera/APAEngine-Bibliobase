@@ -1,0 +1,601 @@
+<html>
+<head><meta charset="UTF-8" /><script>
+var $gwt_version = "2.6.0";
+var $wnd = parent;
+var $doc = $wnd.document;
+var $moduleName, $moduleBase;
+var $strongName = '663764347E46A3625BBDFE6A34AA1931';
+var $stats = $wnd.__gwtStatsEvent ? function(a) {return $wnd.__gwtStatsEvent(a);} : null,
+$sessionId = $wnd.__gwtStatsSessionId ? $wnd.__gwtStatsSessionId : null;
+$stats && $stats({moduleName:'es.junquescu.bibliobase.Libro',sessionId:$sessionId,subSystem:'startup',evtGroup:'moduleStartup',millis:(new Date()).getTime(),type:'moduleEvalStart'});
+</script></head>
+<body>
+<script><!--
+var $intern_0 = '', $intern_4 = ' ', $intern_2 = 'CSS1Compat', $intern_7 = '[Ljava.lang.', $intern_6 = 'com.google.gwt.core.client.', $intern_1 = 'gecko1_8', $intern_5 = 'java.lang.', $intern_3 = 'msie';
+var _, com_google_gwt_lang_SeedUtil_seedTable = {}, Q$java_lang_Object = 0, Q$java_lang_String = 1, Q$com_google_gwt_core_client_JavaScriptException = 2, Q$java_lang_Throwable = 3, CM$ = {};
+function com_google_gwt_lang_SeedUtil_newSeed__ILcom_google_gwt_core_client_JavaScriptObject_2(id_0){
+  return new com_google_gwt_lang_SeedUtil_seedTable[id_0];
+}
+
+function com_google_gwt_lang_SeedUtil_defineSeed__IILcom_google_gwt_core_client_JavaScriptObject_2Lcom_google_gwt_core_client_JavaScriptObject_2(id_0, superSeed, castableTypeMap){
+  var seed = com_google_gwt_lang_SeedUtil_seedTable[id_0];
+  if (seed && !seed.java_lang_Object__1_1_1clazz$) {
+    _ = seed.prototype;
+  }
+   else {
+    !seed && (seed = com_google_gwt_lang_SeedUtil_seedTable[id_0] = function(){
+    }
+    );
+    _ = seed.prototype = superSeed < 0?{}:com_google_gwt_lang_SeedUtil_newSeed__ILcom_google_gwt_core_client_JavaScriptObject_2(superSeed);
+    _.java_lang_Object_castableTypeMap$ = castableTypeMap;
+  }
+  for (var i = 3; i < arguments.length; ++i) {
+    arguments[i].prototype = _;
+  }
+  if (seed.java_lang_Object__1_1_1clazz$) {
+    _.java_lang_Object__1_1_1clazz$ = seed.java_lang_Object__1_1_1clazz$;
+    seed.java_lang_Object__1_1_1clazz$ = null;
+  }
+}
+
+function makeCastMap(a){
+  var result = {};
+  for (var i = 0, c = a.length; i < c; ++i) {
+    result[a[i]] = 1;
+  }
+  return result;
+}
+
+function nullMethod(){
+}
+
+function java_lang_Object_Object__V(){
+}
+
+com_google_gwt_lang_SeedUtil_defineSeed__IILcom_google_gwt_core_client_JavaScriptObject_2Lcom_google_gwt_core_client_JavaScriptObject_2(1, -1, CM$, java_lang_Object_Object__V);
+_.java_lang_Object_typeMarker$ = nullMethod;
+function java_lang_Throwable_$setStackTrace__Ljava_lang_Throwable_2_3Ljava_lang_StackTraceElement_2V(stackTrace){
+  var c, copy, i;
+  copy = com_google_gwt_lang_Array_initDim__Ljava_lang_Class_2Lcom_google_gwt_core_client_JavaScriptObject_2IIILcom_google_gwt_lang_Array_2(com_google_gwt_lang_ClassLiteralHolder__13Ljava_1lang_1StackTraceElement_12_1classLit, CM$, Q$java_lang_Object, stackTrace.length, 0);
+  for (i = 0 , c = stackTrace.length; i < c; ++i) {
+    if (!stackTrace[i]) {
+      throw new java_lang_NullPointerException_NullPointerException__V;
+    }
+    copy[i] = stackTrace[i];
+  }
+}
+
+com_google_gwt_lang_SeedUtil_defineSeed__IILcom_google_gwt_core_client_JavaScriptObject_2Lcom_google_gwt_core_client_JavaScriptObject_2(8, 1, makeCastMap([Q$java_lang_Throwable]));
+com_google_gwt_lang_SeedUtil_defineSeed__IILcom_google_gwt_core_client_JavaScriptObject_2Lcom_google_gwt_core_client_JavaScriptObject_2(7, 8, makeCastMap([Q$java_lang_Throwable]));
+function java_lang_RuntimeException_RuntimeException__V(){
+  com_google_gwt_core_client_impl_StackTraceCreator$Collector_$fillInStackTrace__Lcom_google_gwt_core_client_impl_StackTraceCreator$Collector_2Ljava_lang_Throwable_2V();
+}
+
+com_google_gwt_lang_SeedUtil_defineSeed__IILcom_google_gwt_core_client_JavaScriptObject_2Lcom_google_gwt_core_client_JavaScriptObject_2(6, 7, makeCastMap([Q$java_lang_Throwable]));
+function com_google_gwt_core_client_JavaScriptException_$clinit__V(){
+  com_google_gwt_core_client_JavaScriptException_$clinit__V = nullMethod;
+  com_google_gwt_core_client_JavaScriptException_NOT_1SET = new java_lang_Object_Object__V;
+}
+
+function com_google_gwt_core_client_JavaScriptException_JavaScriptException__Ljava_lang_Object_2V(e){
+  com_google_gwt_core_client_JavaScriptException_$clinit__V();
+  java_lang_RuntimeException_RuntimeException__V.call(this);
+  this.com_google_gwt_core_client_JavaScriptException_e = e;
+  com_google_gwt_core_client_impl_StackTraceCreator$Collector_$createStackTrace__Lcom_google_gwt_core_client_impl_StackTraceCreator$Collector_2Lcom_google_gwt_core_client_JavaScriptException_2V(this);
+}
+
+com_google_gwt_lang_SeedUtil_defineSeed__IILcom_google_gwt_core_client_JavaScriptObject_2Lcom_google_gwt_core_client_JavaScriptObject_2(5, 6, makeCastMap([Q$com_google_gwt_core_client_JavaScriptException, Q$java_lang_Throwable]), com_google_gwt_core_client_JavaScriptException_JavaScriptException__Ljava_lang_Object_2V);
+_.getThrown__Ljava_lang_Object_2 = function com_google_gwt_core_client_JavaScriptException_getThrown__Ljava_lang_Object_2(){
+  return this.com_google_gwt_core_client_JavaScriptException_e === com_google_gwt_core_client_JavaScriptException_NOT_1SET?null:this.com_google_gwt_core_client_JavaScriptException_e;
+}
+;
+var com_google_gwt_core_client_JavaScriptException_NOT_1SET;
+com_google_gwt_lang_SeedUtil_defineSeed__IILcom_google_gwt_core_client_JavaScriptObject_2Lcom_google_gwt_core_client_JavaScriptObject_2(12, 1, {});
+function com_google_gwt_core_client_impl_Impl_apply__Ljava_lang_Object_2Ljava_lang_Object_2Ljava_lang_Object_2Ljava_lang_Object_2(jsFunction, thisObj, args){
+  return jsFunction.apply(thisObj, args);
+  var _;
+}
+
+function com_google_gwt_core_client_impl_Impl_dispose__Lcom_google_gwt_core_client_impl_Disposable_2V(d){
+}
+
+function com_google_gwt_core_client_impl_Impl_enter__Z(){
+  var now_0;
+  if (com_google_gwt_core_client_impl_Impl_entryDepth != 0) {
+    now_0 = (new Date).getTime();
+    if (now_0 - com_google_gwt_core_client_impl_Impl_watchdogEntryDepthLastScheduled > 2000) {
+      com_google_gwt_core_client_impl_Impl_watchdogEntryDepthLastScheduled = now_0;
+      com_google_gwt_core_client_impl_Impl_watchdogEntryDepthTimerId = com_google_gwt_core_client_impl_Impl_watchdogEntryDepthSchedule__I();
+    }
+  }
+  if (com_google_gwt_core_client_impl_Impl_entryDepth++ == 0) {
+    com_google_gwt_core_client_impl_SchedulerImpl_$flushEntryCommands__Lcom_google_gwt_core_client_impl_SchedulerImpl_2V((com_google_gwt_core_client_impl_SchedulerImpl_$clinit__V() , com_google_gwt_core_client_impl_SchedulerImpl_INSTANCE));
+    return true;
+  }
+  return false;
+}
+
+function com_google_gwt_core_client_impl_Impl_entry__Lcom_google_gwt_core_client_JavaScriptObject_2Lcom_google_gwt_core_client_JavaScriptObject_2(jsFunction){
+  return function(){
+    try {
+      return com_google_gwt_core_client_impl_Impl_entry0__Ljava_lang_Object_2Ljava_lang_Object_2Ljava_lang_Object_2Ljava_lang_Object_2(jsFunction, this, arguments);
+    }
+     catch (e) {
+      throw e;
+    }
+  }
+  ;
+}
+
+function com_google_gwt_core_client_impl_Impl_entry0__Ljava_lang_Object_2Ljava_lang_Object_2Ljava_lang_Object_2Ljava_lang_Object_2(jsFunction, thisObj, args){
+  var initialEntry;
+  initialEntry = com_google_gwt_core_client_impl_Impl_enter__Z();
+  try {
+    return com_google_gwt_core_client_impl_Impl_apply__Ljava_lang_Object_2Ljava_lang_Object_2Ljava_lang_Object_2Ljava_lang_Object_2(jsFunction, thisObj, args);
+  }
+   finally {
+    com_google_gwt_core_client_impl_Impl_exit__ZV(initialEntry);
+  }
+}
+
+function com_google_gwt_core_client_impl_Impl_exit__ZV(initialEntry){
+  initialEntry && com_google_gwt_core_client_impl_SchedulerImpl_$flushFinallyCommands__Lcom_google_gwt_core_client_impl_SchedulerImpl_2V((com_google_gwt_core_client_impl_SchedulerImpl_$clinit__V() , com_google_gwt_core_client_impl_SchedulerImpl_INSTANCE));
+  --com_google_gwt_core_client_impl_Impl_entryDepth;
+  if (initialEntry) {
+    if (com_google_gwt_core_client_impl_Impl_watchdogEntryDepthTimerId != -1) {
+      com_google_gwt_core_client_impl_Impl_watchdogEntryDepthCancel__IV(com_google_gwt_core_client_impl_Impl_watchdogEntryDepthTimerId);
+      com_google_gwt_core_client_impl_Impl_watchdogEntryDepthTimerId = -1;
+    }
+  }
+}
+
+function com_google_gwt_core_client_impl_Impl_registerEntry__Lcom_google_gwt_core_client_JavaScriptObject_2(){
+  return com_google_gwt_core_client_impl_Impl_entry__Lcom_google_gwt_core_client_JavaScriptObject_2Lcom_google_gwt_core_client_JavaScriptObject_2;
+}
+
+function com_google_gwt_core_client_impl_Impl_reportToBrowser__Ljava_lang_Object_2V(e){
+  $wnd.setTimeout(function(){
+    throw e;
+  }
+  , 0);
+}
+
+function com_google_gwt_core_client_impl_Impl_setTimeout__Lcom_google_gwt_core_client_JavaScriptObject_2II(func, time){
+  return com_google_gwt_core_client_impl_UnloadSupport_setTimeout0__Lcom_google_gwt_core_client_JavaScriptObject_2ILcom_google_gwt_core_client_impl_Disposable_2I(func, time, null);
+}
+
+function com_google_gwt_core_client_impl_Impl_watchdogEntryDepthCancel__IV(timerId){
+  $wnd.clearTimeout(timerId);
+}
+
+function com_google_gwt_core_client_impl_Impl_watchdogEntryDepthSchedule__I(){
+  return com_google_gwt_core_client_impl_Impl_setTimeout__Lcom_google_gwt_core_client_JavaScriptObject_2II(function(){
+    com_google_gwt_core_client_impl_Impl_entryDepth != 0 && (com_google_gwt_core_client_impl_Impl_entryDepth = 0);
+    com_google_gwt_core_client_impl_Impl_watchdogEntryDepthTimerId = -1;
+  }
+  , 10);
+}
+
+var com_google_gwt_core_client_impl_Impl_entryDepth = 0, com_google_gwt_core_client_impl_Impl_watchdogEntryDepthLastScheduled = 0, com_google_gwt_core_client_impl_Impl_watchdogEntryDepthTimerId = -1;
+function com_google_gwt_core_client_impl_SchedulerImpl_$clinit__V(){
+  com_google_gwt_core_client_impl_SchedulerImpl_$clinit__V = nullMethod;
+  com_google_gwt_core_client_impl_SchedulerImpl_INSTANCE = new com_google_gwt_core_client_impl_SchedulerImpl_SchedulerImpl__V;
+}
+
+function com_google_gwt_core_client_impl_SchedulerImpl_$flushEntryCommands__Lcom_google_gwt_core_client_impl_SchedulerImpl_2V(this$static){
+  var oldQueue, rescheduled;
+  if (this$static.com_google_gwt_core_client_impl_SchedulerImpl_entryCommands) {
+    rescheduled = null;
+    do {
+      oldQueue = this$static.com_google_gwt_core_client_impl_SchedulerImpl_entryCommands;
+      this$static.com_google_gwt_core_client_impl_SchedulerImpl_entryCommands = null;
+      rescheduled = com_google_gwt_core_client_impl_SchedulerImpl_runScheduledTasks__Lcom_google_gwt_core_client_JsArray_2Lcom_google_gwt_core_client_JsArray_2Lcom_google_gwt_core_client_JsArray_2(oldQueue, rescheduled);
+    }
+     while (this$static.com_google_gwt_core_client_impl_SchedulerImpl_entryCommands);
+    this$static.com_google_gwt_core_client_impl_SchedulerImpl_entryCommands = rescheduled;
+  }
+}
+
+function com_google_gwt_core_client_impl_SchedulerImpl_$flushFinallyCommands__Lcom_google_gwt_core_client_impl_SchedulerImpl_2V(this$static){
+  var oldQueue, rescheduled;
+  if (this$static.com_google_gwt_core_client_impl_SchedulerImpl_finallyCommands) {
+    rescheduled = null;
+    do {
+      oldQueue = this$static.com_google_gwt_core_client_impl_SchedulerImpl_finallyCommands;
+      this$static.com_google_gwt_core_client_impl_SchedulerImpl_finallyCommands = null;
+      rescheduled = com_google_gwt_core_client_impl_SchedulerImpl_runScheduledTasks__Lcom_google_gwt_core_client_JsArray_2Lcom_google_gwt_core_client_JsArray_2Lcom_google_gwt_core_client_JsArray_2(oldQueue, rescheduled);
+    }
+     while (this$static.com_google_gwt_core_client_impl_SchedulerImpl_finallyCommands);
+    this$static.com_google_gwt_core_client_impl_SchedulerImpl_finallyCommands = rescheduled;
+  }
+}
+
+function com_google_gwt_core_client_impl_SchedulerImpl_SchedulerImpl__V(){
+}
+
+function com_google_gwt_core_client_impl_SchedulerImpl_push__Lcom_google_gwt_core_client_JsArray_2Lcom_google_gwt_core_client_impl_SchedulerImpl$Task_2Lcom_google_gwt_core_client_JsArray_2(queue, task){
+  !queue && (queue = []);
+  queue[queue.length] = task;
+  return queue;
+}
+
+function com_google_gwt_core_client_impl_SchedulerImpl_runScheduledTasks__Lcom_google_gwt_core_client_JsArray_2Lcom_google_gwt_core_client_JsArray_2Lcom_google_gwt_core_client_JsArray_2(tasks, rescheduled){
+  var e, i, j, t;
+  for (i = 0 , j = tasks.length; i < j; i++) {
+    t = tasks[i];
+    try {
+      t[1]?t[0].nullMethod() && (rescheduled = com_google_gwt_core_client_impl_SchedulerImpl_push__Lcom_google_gwt_core_client_JsArray_2Lcom_google_gwt_core_client_impl_SchedulerImpl$Task_2Lcom_google_gwt_core_client_JsArray_2(rescheduled, t)):t[0].nullMethod();
+    }
+     catch ($e0) {
+      $e0 = com_google_gwt_lang_Exceptions_wrap__Ljava_lang_Object_2Ljava_lang_Object_2($e0);
+      if (com_google_gwt_lang_Cast_instanceOf__Ljava_lang_Object_2IZ($e0, Q$java_lang_Throwable)) {
+        e = $e0;
+        com_google_gwt_core_client_impl_Impl_reportToBrowser__Ljava_lang_Object_2V(com_google_gwt_lang_Cast_instanceOf__Ljava_lang_Object_2IZ(e, Q$com_google_gwt_core_client_JavaScriptException)?com_google_gwt_lang_Cast_dynamicCast__Ljava_lang_Object_2ILjava_lang_Object_2(e, Q$com_google_gwt_core_client_JavaScriptException).getThrown__Ljava_lang_Object_2():e);
+      }
+       else 
+        throw com_google_gwt_lang_Exceptions_unwrap__Ljava_lang_Object_2Ljava_lang_Object_2($e0);
+    }
+  }
+  return rescheduled;
+}
+
+com_google_gwt_lang_SeedUtil_defineSeed__IILcom_google_gwt_core_client_JavaScriptObject_2Lcom_google_gwt_core_client_JavaScriptObject_2(14, 12, {}, com_google_gwt_core_client_impl_SchedulerImpl_SchedulerImpl__V);
+var com_google_gwt_core_client_impl_SchedulerImpl_INSTANCE;
+function com_google_gwt_core_client_impl_StackTraceCreator_extractNameFromToString__Ljava_lang_String_2Ljava_lang_String_2(fnToString){
+  var index_0, start_0, toReturn;
+  toReturn = $intern_0;
+  fnToString = java_lang_String_$trim__Ljava_lang_String_2Ljava_lang_String_2(fnToString);
+  index_0 = fnToString.indexOf('(');
+  start_0 = fnToString.indexOf('function') == 0?8:0;
+  if (index_0 == -1) {
+    index_0 = java_lang_String_$indexOf__Ljava_lang_String_2Ljava_lang_String_2I(fnToString, String.fromCharCode(64));
+    start_0 = fnToString.indexOf('function ') == 0?9:0;
+  }
+  index_0 != -1 && (toReturn = java_lang_String_$trim__Ljava_lang_String_2Ljava_lang_String_2(fnToString.substr(start_0, index_0 - start_0)));
+  return toReturn.length > 0?toReturn:'anonymous';
+}
+
+function com_google_gwt_core_client_impl_StackTraceCreator_splice__Lcom_google_gwt_core_client_JsArrayString_2ILcom_google_gwt_core_client_JsArrayString_2(arr, length_0){
+  arr.length >= length_0 && arr.splice(0, length_0);
+  return arr;
+}
+
+function com_google_gwt_core_client_impl_StackTraceCreator$Collector_$createStackTrace__Lcom_google_gwt_core_client_impl_StackTraceCreator$Collector_2Lcom_google_gwt_core_client_JavaScriptException_2V(e){
+  var i, j, stack_0, stackTrace;
+  stack_0 = com_google_gwt_core_client_impl_StackTraceCreator$CollectorMoz_$inferFrom__Lcom_google_gwt_core_client_impl_StackTraceCreator$CollectorMoz_2Ljava_lang_Object_2Lcom_google_gwt_core_client_JsArrayString_2(e.com_google_gwt_core_client_JavaScriptException_e === (com_google_gwt_core_client_JavaScriptException_$clinit__V() , com_google_gwt_core_client_JavaScriptException_NOT_1SET)?null:e.com_google_gwt_core_client_JavaScriptException_e);
+  stackTrace = com_google_gwt_lang_Array_initDim__Ljava_lang_Class_2Lcom_google_gwt_core_client_JavaScriptObject_2IIILcom_google_gwt_lang_Array_2(com_google_gwt_lang_ClassLiteralHolder__13Ljava_1lang_1StackTraceElement_12_1classLit, CM$, Q$java_lang_Object, stack_0.length, 0);
+  for (i = 0 , j = stackTrace.length; i < j; i++) {
+    stackTrace[i] = new java_lang_StackTraceElement_StackTraceElement__Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_String_2IV(stack_0[i]);
+  }
+  java_lang_Throwable_$setStackTrace__Ljava_lang_Throwable_2_3Ljava_lang_StackTraceElement_2V(stackTrace);
+}
+
+function com_google_gwt_core_client_impl_StackTraceCreator$Collector_$fillInStackTrace__Lcom_google_gwt_core_client_impl_StackTraceCreator$Collector_2Ljava_lang_Throwable_2V(){
+  var i, j, stack_0, stackTrace;
+  stack_0 = com_google_gwt_core_client_impl_StackTraceCreator_splice__Lcom_google_gwt_core_client_JsArrayString_2ILcom_google_gwt_core_client_JsArrayString_2(com_google_gwt_core_client_impl_StackTraceCreator$CollectorMoz_$inferFrom__Lcom_google_gwt_core_client_impl_StackTraceCreator$CollectorMoz_2Ljava_lang_Object_2Lcom_google_gwt_core_client_JsArrayString_2(com_google_gwt_core_client_impl_StackTraceCreator$Collector_$makeException__Lcom_google_gwt_core_client_impl_StackTraceCreator$Collector_2Lcom_google_gwt_core_client_JavaScriptObject_2()), 2);
+  stackTrace = com_google_gwt_lang_Array_initDim__Ljava_lang_Class_2Lcom_google_gwt_core_client_JavaScriptObject_2IIILcom_google_gwt_lang_Array_2(com_google_gwt_lang_ClassLiteralHolder__13Ljava_1lang_1StackTraceElement_12_1classLit, CM$, Q$java_lang_Object, stack_0.length, 0);
+  for (i = 0 , j = stackTrace.length; i < j; i++) {
+    stackTrace[i] = new java_lang_StackTraceElement_StackTraceElement__Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_String_2IV(stack_0[i]);
+  }
+  java_lang_Throwable_$setStackTrace__Ljava_lang_Throwable_2_3Ljava_lang_StackTraceElement_2V(stackTrace);
+}
+
+function com_google_gwt_core_client_impl_StackTraceCreator$Collector_$makeException__Lcom_google_gwt_core_client_impl_StackTraceCreator$Collector_2Lcom_google_gwt_core_client_JavaScriptObject_2(){
+  try {
+    null.a();
+  }
+   catch (e) {
+    return e;
+  }
+}
+
+function com_google_gwt_core_client_impl_StackTraceCreator$CollectorMoz_$inferFrom__Lcom_google_gwt_core_client_impl_StackTraceCreator$CollectorMoz_2Ljava_lang_Object_2Lcom_google_gwt_core_client_JsArrayString_2(e){
+  var i, j, jso, stack_0;
+  jso = e != null && e.java_lang_Object_typeMarker$ != nullMethod && !com_google_gwt_lang_Cast_canCast__Ljava_lang_Object_2IZ(e, 1)?com_google_gwt_lang_Cast_dynamicCastJso__Ljava_lang_Object_2Ljava_lang_Object_2(e):null;
+  stack_0 = jso && jso.stack?jso.stack.split('\n'):[];
+  for (i = 0 , j = stack_0.length; i < j; i++) {
+    stack_0[i] = com_google_gwt_core_client_impl_StackTraceCreator_extractNameFromToString__Ljava_lang_String_2Ljava_lang_String_2(stack_0[i]);
+  }
+  return stack_0;
+}
+
+function com_google_gwt_core_client_impl_UnloadSupport_setTimeout0__Lcom_google_gwt_core_client_JavaScriptObject_2ILcom_google_gwt_core_client_impl_Disposable_2I(func, time, disposeable){
+  var timerId = $wnd.setTimeout(function(){
+    func();
+    disposeable != null && com_google_gwt_core_client_impl_Impl_dispose__Lcom_google_gwt_core_client_impl_Disposable_2V(disposeable);
+  }
+  , time);
+  return timerId;
+}
+
+function com_google_gwt_lang_Array_Array__V(){
+}
+
+function com_google_gwt_lang_Array_createFromSeed__IILcom_google_gwt_lang_Array_2(seedType, length_0){
+  var array = new Array(length_0);
+  if (seedType == 3) {
+    for (var i = 0; i < length_0; ++i) {
+      array[i] = {l:0, m:0, h:0};
+    }
+  }
+   else if (seedType > 0 && seedType < 3) {
+    var value_0 = seedType == 1?0:false;
+    for (var i = 0; i < length_0; ++i) {
+      array[i] = value_0;
+    }
+  }
+  return array;
+}
+
+function com_google_gwt_lang_Array_initDim__Ljava_lang_Class_2Lcom_google_gwt_core_client_JavaScriptObject_2IIILcom_google_gwt_lang_Array_2(arrayClass, castableTypeMap, queryId, length_0, seedType){
+  var result;
+  result = com_google_gwt_lang_Array_createFromSeed__IILcom_google_gwt_lang_Array_2(seedType, length_0);
+  com_google_gwt_lang_Array_initValues__Ljava_lang_Class_2Lcom_google_gwt_core_client_JavaScriptObject_2ILcom_google_gwt_lang_Array_2Lcom_google_gwt_lang_Array_2(arrayClass, castableTypeMap, queryId, result);
+  return result;
+}
+
+function com_google_gwt_lang_Array_initValues__Ljava_lang_Class_2Lcom_google_gwt_core_client_JavaScriptObject_2ILcom_google_gwt_lang_Array_2Lcom_google_gwt_lang_Array_2(arrayClass, castableTypeMap, queryId, array){
+  com_google_gwt_lang_Array$ExpandoWrapper_$clinit__V();
+  com_google_gwt_lang_Array$ExpandoWrapper_wrapArray__Lcom_google_gwt_lang_Array_2Ljava_lang_Object_2Ljava_lang_Object_2V(array, com_google_gwt_lang_Array$ExpandoWrapper_expandoNames, com_google_gwt_lang_Array$ExpandoWrapper_expandoValues);
+  array.java_lang_Object__1_1_1clazz$ = arrayClass;
+  array.java_lang_Object_castableTypeMap$ = castableTypeMap;
+  return array;
+}
+
+com_google_gwt_lang_SeedUtil_defineSeed__IILcom_google_gwt_core_client_JavaScriptObject_2Lcom_google_gwt_core_client_JavaScriptObject_2(22, 1, {}, com_google_gwt_lang_Array_Array__V);
+function com_google_gwt_lang_Array$ExpandoWrapper_$clinit__V(){
+  com_google_gwt_lang_Array$ExpandoWrapper_$clinit__V = nullMethod;
+  com_google_gwt_lang_Array$ExpandoWrapper_expandoNames = [];
+  com_google_gwt_lang_Array$ExpandoWrapper_expandoValues = [];
+  com_google_gwt_lang_Array$ExpandoWrapper_initExpandos__Lcom_google_gwt_lang_Array_2Ljava_lang_Object_2Ljava_lang_Object_2V(new com_google_gwt_lang_Array_Array__V, com_google_gwt_lang_Array$ExpandoWrapper_expandoNames, com_google_gwt_lang_Array$ExpandoWrapper_expandoValues);
+}
+
+function com_google_gwt_lang_Array$ExpandoWrapper_initExpandos__Lcom_google_gwt_lang_Array_2Ljava_lang_Object_2Ljava_lang_Object_2V(protoType, expandoNames, expandoValues){
+  var i = 0, value_0;
+  for (var name_0 in protoType) {
+    if (value_0 = protoType[name_0]) {
+      expandoNames[i] = name_0;
+      expandoValues[i] = value_0;
+      ++i;
+    }
+  }
+}
+
+function com_google_gwt_lang_Array$ExpandoWrapper_wrapArray__Lcom_google_gwt_lang_Array_2Ljava_lang_Object_2Ljava_lang_Object_2V(array, expandoNames, expandoValues){
+  com_google_gwt_lang_Array$ExpandoWrapper_$clinit__V();
+  for (var i = 0, c = expandoNames.length; i < c; ++i) {
+    array[expandoNames[i]] = expandoValues[i];
+  }
+}
+
+var com_google_gwt_lang_Array$ExpandoWrapper_expandoNames, com_google_gwt_lang_Array$ExpandoWrapper_expandoValues;
+function com_google_gwt_lang_Cast_canCast__Ljava_lang_Object_2IZ(src_0, dstId){
+  return src_0.java_lang_Object_castableTypeMap$ && !!src_0.java_lang_Object_castableTypeMap$[dstId];
+}
+
+function com_google_gwt_lang_Cast_dynamicCast__Ljava_lang_Object_2ILjava_lang_Object_2(src_0, dstId){
+  if (src_0 != null && !(src_0.java_lang_Object_castableTypeMap$ && src_0.java_lang_Object_castableTypeMap$[dstId])) {
+    throw new java_lang_ClassCastException_ClassCastException__V;
+  }
+  return src_0;
+}
+
+function com_google_gwt_lang_Cast_dynamicCastJso__Ljava_lang_Object_2Ljava_lang_Object_2(src_0){
+  if (src_0 != null && (src_0.java_lang_Object_typeMarker$ == nullMethod || com_google_gwt_lang_Cast_canCast__Ljava_lang_Object_2IZ(src_0, 1))) {
+    throw new java_lang_ClassCastException_ClassCastException__V;
+  }
+  return src_0;
+}
+
+function com_google_gwt_lang_Cast_instanceOf__Ljava_lang_Object_2IZ(src_0, dstId){
+  return src_0 != null && com_google_gwt_lang_Cast_canCast__Ljava_lang_Object_2IZ(src_0, dstId);
+}
+
+function com_google_gwt_lang_EntryMethodHolder_init__V(){
+  var com_google_gwt_useragent_client_UserAgentAsserter_$onModuleLoad__Lcom_google_gwt_useragent_client_UserAgentAsserter_2V_runtimeValue_0;
+  com_google_gwt_lang_Stats_isStatsAvailable__Z() && com_google_gwt_lang_Stats_onModuleStart__Ljava_lang_String_2Z('com.google.gwt.useragent.client.UserAgentAsserter');
+  com_google_gwt_useragent_client_UserAgentAsserter_$onModuleLoad__Lcom_google_gwt_useragent_client_UserAgentAsserter_2V_runtimeValue_0 = com_google_gwt_useragent_client_UserAgentImplGecko1_18_$getRuntimeValue__Lcom_google_gwt_useragent_client_UserAgentImplGecko1_18_2Ljava_lang_String_2();
+  java_lang_String_$equals__Ljava_lang_String_2Ljava_lang_Object_2Z($intern_1, com_google_gwt_useragent_client_UserAgentAsserter_$onModuleLoad__Lcom_google_gwt_useragent_client_UserAgentAsserter_2V_runtimeValue_0) || ($wnd.alert('ERROR: Possible problem with your *.gwt.xml module file.\nThe compile time user.agent value (gecko1_8) does not match the runtime user.agent value (' + com_google_gwt_useragent_client_UserAgentAsserter_$onModuleLoad__Lcom_google_gwt_useragent_client_UserAgentAsserter_2V_runtimeValue_0 + '). Expect more errors.\n') , undefined);
+  com_google_gwt_lang_Stats_isStatsAvailable__Z() && com_google_gwt_lang_Stats_onModuleStart__Ljava_lang_String_2Z('com.google.gwt.user.client.DocumentModeAsserter');
+  com_google_gwt_user_client_DocumentModeAsserter_$onModuleLoad__Lcom_google_gwt_user_client_DocumentModeAsserter_2V();
+}
+
+function com_google_gwt_lang_Exceptions_getCachableJavaScriptException__Ljava_lang_Object_2Lcom_google_gwt_core_client_JavaScriptException_2(e){
+  var jse = e.__gwt$exception;
+  if (!jse) {
+    jse = new com_google_gwt_core_client_JavaScriptException_JavaScriptException__Ljava_lang_Object_2V(e);
+    try {
+      e.__gwt$exception = jse;
+    }
+     catch (e) {
+    }
+  }
+  return jse;
+}
+
+function com_google_gwt_lang_Exceptions_unwrap__Ljava_lang_Object_2Ljava_lang_Object_2(e){
+  var jse;
+  if (com_google_gwt_lang_Cast_instanceOf__Ljava_lang_Object_2IZ(e, Q$com_google_gwt_core_client_JavaScriptException)) {
+    jse = com_google_gwt_lang_Cast_dynamicCast__Ljava_lang_Object_2ILjava_lang_Object_2(e, Q$com_google_gwt_core_client_JavaScriptException);
+    if (jse.com_google_gwt_core_client_JavaScriptException_e !== (com_google_gwt_core_client_JavaScriptException_$clinit__V() , com_google_gwt_core_client_JavaScriptException_NOT_1SET)) {
+      return jse.com_google_gwt_core_client_JavaScriptException_e === com_google_gwt_core_client_JavaScriptException_NOT_1SET?null:jse.com_google_gwt_core_client_JavaScriptException_e;
+    }
+  }
+  return e;
+}
+
+function com_google_gwt_lang_Exceptions_wrap__Ljava_lang_Object_2Ljava_lang_Object_2(e){
+  if (com_google_gwt_lang_Cast_instanceOf__Ljava_lang_Object_2IZ(e, Q$java_lang_Throwable)) {
+    return e;
+  }
+  return e == null?new com_google_gwt_core_client_JavaScriptException_JavaScriptException__Ljava_lang_Object_2V(null):com_google_gwt_lang_Exceptions_getCachableJavaScriptException__Ljava_lang_Object_2Lcom_google_gwt_core_client_JavaScriptException_2(e);
+}
+
+function com_google_gwt_lang_Stats_isStatsAvailable__Z(){
+  return !!$stats;
+}
+
+function com_google_gwt_lang_Stats_onModuleStart__Ljava_lang_String_2Z(mainClassName){
+  return $stats({moduleName:$moduleName, sessionId:$sessionId, subSystem:'startup', evtGroup:'moduleStartup', millis:(new Date).getTime(), type:'onModuleLoadStart', className:mainClassName});
+}
+
+function com_google_gwt_user_client_DocumentModeAsserter_$onModuleLoad__Lcom_google_gwt_user_client_DocumentModeAsserter_2V(){
+  var allowedModes, currentMode, i;
+  currentMode = $doc.compatMode;
+  allowedModes = com_google_gwt_lang_Array_initValues__Ljava_lang_Class_2Lcom_google_gwt_core_client_JavaScriptObject_2ILcom_google_gwt_lang_Array_2Lcom_google_gwt_lang_Array_2(com_google_gwt_lang_ClassLiteralHolder__13Ljava_1lang_1String_12_1classLit, CM$, Q$java_lang_String, [$intern_2]);
+  for (i = 0; i < allowedModes.length; i++) {
+    if (java_lang_String_$equals__Ljava_lang_String_2Ljava_lang_Object_2Z(allowedModes[i], currentMode)) {
+      return;
+    }
+  }
+  allowedModes.length == 1 && java_lang_String_$equals__Ljava_lang_String_2Ljava_lang_Object_2Z($intern_2, allowedModes[0]) && java_lang_String_$equals__Ljava_lang_String_2Ljava_lang_Object_2Z('BackCompat', currentMode)?"GWT no longer supports Quirks Mode (document.compatMode=' BackCompat').<br>Make sure your application's host HTML page has a Standards Mode (document.compatMode=' CSS1Compat') doctype,<br>e.g. by using &lt;!doctype html&gt; at the start of your application's HTML page.<br><br>To continue using this unsupported rendering mode and risk layout problems, suppress this message by adding<br>the following line to your*.gwt.xml module file:<br>&nbsp;&nbsp;&lt;extend-configuration-property name=\"document.compatMode\" value=\"" + currentMode + '"/&gt;':"Your *.gwt.xml module configuration prohibits the use of the current doucment rendering mode (document.compatMode=' " + currentMode + "').<br>Modify your application's host HTML page doctype, or update your custom 'document.compatMode' configuration property settings.";
+}
+
+function com_google_gwt_useragent_client_UserAgentImplGecko1_18_$getRuntimeValue__Lcom_google_gwt_useragent_client_UserAgentImplGecko1_18_2Ljava_lang_String_2(){
+  var ua = navigator.userAgent.toLowerCase();
+  var makeVersion = function(result){
+    return parseInt(result[1]) * 1000 + parseInt(result[2]);
+  }
+  ;
+  if (function(){
+    return ua.indexOf('webkit') != -1;
+  }
+  ())
+    return 'safari';
+  if (function(){
+    return ua.indexOf($intern_3) != -1 && $doc.documentMode >= 10;
+  }
+  ())
+    return 'ie10';
+  if (function(){
+    return ua.indexOf($intern_3) != -1 && $doc.documentMode >= 9;
+  }
+  ())
+    return 'ie9';
+  if (function(){
+    return ua.indexOf($intern_3) != -1 && $doc.documentMode >= 8;
+  }
+  ())
+    return 'ie8';
+  if (function(){
+    return ua.indexOf('gecko') != -1;
+  }
+  ())
+    return $intern_1;
+  return 'unknown';
+}
+
+function java_lang_Class_Class__V(){
+}
+
+function java_lang_Class_createForArray__Ljava_lang_String_2Ljava_lang_String_2ILjava_lang_Class_2Ljava_lang_Class_2(packageName, className, seedId){
+  var clazz;
+  clazz = new java_lang_Class_Class__V;
+  java_lang_Class_isInstantiable__IZ(seedId != 0?-seedId:0) && java_lang_Class_setClassLiteral__ILjava_lang_Class_2V(seedId != 0?-seedId:0, clazz);
+  return clazz;
+}
+
+function java_lang_Class_createForClass__Ljava_lang_String_2Ljava_lang_String_2ILjava_lang_Class_2Ljava_lang_Class_2(packageName, className, seedId){
+  var clazz;
+  clazz = new java_lang_Class_Class__V;
+  java_lang_Class_isInstantiable__IZ(seedId) && java_lang_Class_setClassLiteral__ILjava_lang_Class_2V(seedId, clazz);
+  return clazz;
+}
+
+function java_lang_Class_getSeedFunction__Ljava_lang_Class_2Lcom_google_gwt_core_client_JavaScriptObject_2(clazz){
+  var func = com_google_gwt_lang_SeedUtil_seedTable[clazz.java_lang_Class_seedId];
+  clazz = null;
+  return func;
+}
+
+function java_lang_Class_isInstantiable__IZ(seedId){
+  return typeof seedId == 'number' && seedId > 0;
+}
+
+--></script>
+<script><!--
+function java_lang_Class_setClassLiteral__ILjava_lang_Class_2V(seedId, clazz){
+  var proto;
+  clazz.java_lang_Class_seedId = seedId;
+  if (seedId == 2) {
+    proto = String.prototype;
+  }
+   else {
+    if (seedId > 0) {
+      var seed = java_lang_Class_getSeedFunction__Ljava_lang_Class_2Lcom_google_gwt_core_client_JavaScriptObject_2(clazz);
+      if (seed) {
+        proto = seed.prototype;
+      }
+       else {
+        seed = com_google_gwt_lang_SeedUtil_seedTable[seedId] = function(){
+        }
+        ;
+        seed.java_lang_Object__1_1_1clazz$ = clazz;
+        return;
+      }
+    }
+     else {
+      return;
+    }
+  }
+  proto.java_lang_Object__1_1_1clazz$ = clazz;
+}
+
+com_google_gwt_lang_SeedUtil_defineSeed__IILcom_google_gwt_core_client_JavaScriptObject_2Lcom_google_gwt_core_client_JavaScriptObject_2(34, 1, {}, java_lang_Class_Class__V);
+_.java_lang_Class_seedId = 0;
+function java_lang_ClassCastException_ClassCastException__V(){
+  java_lang_RuntimeException_RuntimeException__V.call(this);
+}
+
+com_google_gwt_lang_SeedUtil_defineSeed__IILcom_google_gwt_core_client_JavaScriptObject_2Lcom_google_gwt_core_client_JavaScriptObject_2(35, 6, makeCastMap([Q$java_lang_Throwable]), java_lang_ClassCastException_ClassCastException__V);
+function java_lang_NullPointerException_NullPointerException__V(){
+  java_lang_RuntimeException_RuntimeException__V.call(this);
+}
+
+com_google_gwt_lang_SeedUtil_defineSeed__IILcom_google_gwt_core_client_JavaScriptObject_2Lcom_google_gwt_core_client_JavaScriptObject_2(36, 6, makeCastMap([Q$java_lang_Throwable]), java_lang_NullPointerException_NullPointerException__V);
+function java_lang_StackTraceElement_StackTraceElement__Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_String_2IV(methodName){
+}
+
+com_google_gwt_lang_SeedUtil_defineSeed__IILcom_google_gwt_core_client_JavaScriptObject_2Lcom_google_gwt_core_client_JavaScriptObject_2(37, 1, {}, java_lang_StackTraceElement_StackTraceElement__Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_String_2IV);
+function java_lang_String_$equals__Ljava_lang_String_2Ljava_lang_Object_2Z(this$static, other){
+  if (other == null) {
+    return false;
+  }
+  return String(this$static) == other;
+}
+
+function java_lang_String_$indexOf__Ljava_lang_String_2Ljava_lang_String_2I(this$static, str){
+  return this$static.indexOf(str);
+}
+
+function java_lang_String_$trim__Ljava_lang_String_2Ljava_lang_String_2(this$static){
+  if (this$static.length == 0 || this$static[0] > $intern_4 && this$static[this$static.length - 1] > $intern_4) {
+    return this$static;
+  }
+  var r1 = this$static.replace(/^(\s*)/, $intern_0);
+  var r2 = r1.replace(/\s*$/, $intern_0);
+  return r2;
+}
+
+_ = String.prototype;
+_.java_lang_Object_castableTypeMap$ = makeCastMap([Q$java_lang_String]);
+var $entry = com_google_gwt_core_client_impl_Impl_registerEntry__Lcom_google_gwt_core_client_JavaScriptObject_2();
+function gwtOnLoad(errFn, modName, modBase, softPermutationId){
+  $moduleName = modName;
+  $moduleBase = modBase;
+  if (errFn)
+    try {
+      $entry(com_google_gwt_lang_EntryMethodHolder_init__V)();
+    }
+     catch (e) {
+      errFn(modName);
+    }
+   else {
+    $entry(com_google_gwt_lang_EntryMethodHolder_init__V)();
+  }
+}
+
+var com_google_gwt_lang_ClassLiteralHolder_Ljava_1lang_1Object_12_1classLit = java_lang_Class_createForClass__Ljava_lang_String_2Ljava_lang_String_2ILjava_lang_Class_2Ljava_lang_Class_2($intern_5, 'Object', 1), com_google_gwt_lang_ClassLiteralHolder_Lcom_1google_1gwt_1core_1client_1Scheduler_12_1classLit = java_lang_Class_createForClass__Ljava_lang_String_2Ljava_lang_String_2ILjava_lang_Class_2Ljava_lang_Class_2($intern_6, 'Scheduler', 12), com_google_gwt_lang_ClassLiteralHolder_Lcom_1google_1gwt_1core_1client_1JavaScriptObject_12_1classLit = java_lang_Class_createForClass__Ljava_lang_String_2Ljava_lang_String_2ILjava_lang_Class_2Ljava_lang_Class_2($intern_6, 'JavaScriptObject$', 9), com_google_gwt_lang_ClassLiteralHolder_Ljava_1lang_1Throwable_12_1classLit = java_lang_Class_createForClass__Ljava_lang_String_2Ljava_lang_String_2ILjava_lang_Class_2Ljava_lang_Class_2($intern_5, 'Throwable', 8), com_google_gwt_lang_ClassLiteralHolder_Ljava_1lang_1Exception_12_1classLit = java_lang_Class_createForClass__Ljava_lang_String_2Ljava_lang_String_2ILjava_lang_Class_2Ljava_lang_Class_2($intern_5, 'Exception', 7), com_google_gwt_lang_ClassLiteralHolder_Ljava_1lang_1RuntimeException_12_1classLit = java_lang_Class_createForClass__Ljava_lang_String_2Ljava_lang_String_2ILjava_lang_Class_2Ljava_lang_Class_2($intern_5, 'RuntimeException', 6), com_google_gwt_lang_ClassLiteralHolder_Ljava_1lang_1StackTraceElement_12_1classLit = java_lang_Class_createForClass__Ljava_lang_String_2Ljava_lang_String_2ILjava_lang_Class_2Ljava_lang_Class_2($intern_5, 'StackTraceElement', 37), com_google_gwt_lang_ClassLiteralHolder__13Ljava_1lang_1StackTraceElement_12_1classLit = java_lang_Class_createForArray__Ljava_lang_String_2Ljava_lang_String_2ILjava_lang_Class_2Ljava_lang_Class_2($intern_7, 'StackTraceElement;', 38), com_google_gwt_lang_ClassLiteralHolder_Lcom_1google_1gwt_1lang_1SeedUtil_12_1classLit = java_lang_Class_createForClass__Ljava_lang_String_2Ljava_lang_String_2ILjava_lang_Class_2Ljava_lang_Class_2('com.google.gwt.lang.', 'SeedUtil', 28), com_google_gwt_lang_ClassLiteralHolder_Ljava_1lang_1Class_12_1classLit = java_lang_Class_createForClass__Ljava_lang_String_2Ljava_lang_String_2ILjava_lang_Class_2Ljava_lang_Class_2($intern_5, 'Class', 34), com_google_gwt_lang_ClassLiteralHolder_Ljava_1lang_1String_12_1classLit = java_lang_Class_createForClass__Ljava_lang_String_2Ljava_lang_String_2ILjava_lang_Class_2Ljava_lang_Class_2($intern_5, 'String', 2), com_google_gwt_lang_ClassLiteralHolder__13Ljava_1lang_1String_12_1classLit = java_lang_Class_createForArray__Ljava_lang_String_2Ljava_lang_String_2ILjava_lang_Class_2Ljava_lang_Class_2($intern_7, 'String;', 39), com_google_gwt_lang_ClassLiteralHolder_Ljava_1lang_1ClassCastException_12_1classLit = java_lang_Class_createForClass__Ljava_lang_String_2Ljava_lang_String_2ILjava_lang_Class_2Ljava_lang_Class_2($intern_5, 'ClassCastException', 35), com_google_gwt_lang_ClassLiteralHolder_Lcom_1google_1gwt_1core_1client_1JavaScriptException_12_1classLit = java_lang_Class_createForClass__Ljava_lang_String_2Ljava_lang_String_2ILjava_lang_Class_2Ljava_lang_Class_2($intern_6, 'JavaScriptException', 5), com_google_gwt_lang_ClassLiteralHolder_Ljava_1lang_1NullPointerException_12_1classLit = java_lang_Class_createForClass__Ljava_lang_String_2Ljava_lang_String_2ILjava_lang_Class_2Ljava_lang_Class_2($intern_5, 'NullPointerException', 36), com_google_gwt_lang_ClassLiteralHolder_Lcom_1google_1gwt_1core_1client_1impl_1SchedulerImpl_12_1classLit = java_lang_Class_createForClass__Ljava_lang_String_2Ljava_lang_String_2ILjava_lang_Class_2Ljava_lang_Class_2('com.google.gwt.core.client.impl.', 'SchedulerImpl', 14);
+$stats && $stats({moduleName:'es.junquescu.bibliobase.Libro',sessionId:$sessionId,subSystem:'startup',evtGroup:'moduleStartup',millis:(new Date()).getTime(),type:'moduleEvalEnd'});
+if ($wnd.es_junquescu_bibliobase_Libro) $wnd.es_junquescu_bibliobase_Libro.onScriptLoad();
+--></script></body></html>

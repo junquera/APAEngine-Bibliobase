@@ -1,4 +1,4 @@
-package es.junquera.bibliobase.client;
+package es.junquescu.bibliobase.client;
 
 import com.google.gwt.user.client.rpc.AsyncCallback;
 

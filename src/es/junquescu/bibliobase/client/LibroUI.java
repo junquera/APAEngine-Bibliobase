@@ -1,4 +1,4 @@
-package es.junquera.bibliobase.client;
+package es.junquescu.bibliobase.client;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,7 +9,7 @@ import com.google.gwt.user.client.ui.HorizontalPanel;
 import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.VerticalPanel;
 
-import es.junquera.bibliobase.server.Libro;
+import es.junquescu.bibliobase.server.Libro;
 
 /**
  * 

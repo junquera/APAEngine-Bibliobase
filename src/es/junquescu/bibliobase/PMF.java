@@ -1,4 +1,4 @@
-package es.junquera.bibliobase;
+package es.junquescu.bibliobase;
 
 import javax.jdo.JDOHelper;
 import javax.jdo.PersistenceManagerFactory;

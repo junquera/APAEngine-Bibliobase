@@ -1,4 +1,4 @@
-package es.junquera.bibliobase.server;
+package es.junquescu.bibliobase.server;
 
 import java.io.Serializable;
 import java.util.ArrayList;

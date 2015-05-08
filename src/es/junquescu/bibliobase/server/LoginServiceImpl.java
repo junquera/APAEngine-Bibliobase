@@ -1,4 +1,4 @@
-package es.junquera.bibliobase.server;
+package es.junquescu.bibliobase.server;
 
 
 import com.google.appengine.api.users.User;
@@ -6,8 +6,8 @@ import com.google.appengine.api.users.UserService;
 import com.google.appengine.api.users.UserServiceFactory;
 import com.google.gwt.user.server.rpc.RemoteServiceServlet;
 
-import es.junquera.bibliobase.client.LoginInfo;
-import es.junquera.bibliobase.client.LoginService;
+import es.junquescu.bibliobase.client.LoginInfo;
+import es.junquescu.bibliobase.client.LoginService;
 
 public class LoginServiceImpl extends RemoteServiceServlet implements
     LoginService {

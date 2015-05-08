@@ -1,9 +1,9 @@
-package es.junquera.bibliobase.server
+package es.junquescu.bibliobase.server
 
 import com.google.gwt.user.server.rpc.RemoteServiceServlet
 import javax.jdo._
-import es.junquera.bibliobase.PMF
-import es.junquera.bibliobase.client.BiblioBaseService
+import es.junquescu.bibliobase.PMF
+import es.junquescu.bibliobase.client.BiblioBaseService
 import scala.collection.JavaConversions._
 import com.google.appengine.repackaged.com.google.common.collect.Synchronized
 

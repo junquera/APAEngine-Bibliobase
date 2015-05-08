@@ -1,4 +1,4 @@
-package es.junquera.bibliobase.client;
+package es.junquescu.bibliobase.client;
 
 import com.google.gwt.core.client.*;
 import com.google.gwt.event.dom.client.ClickEvent;
@@ -6,7 +6,7 @@ import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.*;
 
-import es.junquera.bibliobase.server.Libro;
+import es.junquescu.bibliobase.server.Libro;
 
 /**
  * Entry point classes define <code>onModuleLoad()</code>.
@@ -127,14 +127,16 @@ public class BiblioBase implements EntryPoint {
 			@Override
 			public void onSuccess(Libro[] result) {
 				RootPanel.get("libros").clear();
-				for (Libro libro : result)
-					if (administrador) {
+				if (administrador) {
+					for (Libro libro : result)
 						RootPanel.get("libros").add(new LibroUIAdmin(libro));
-						cargar.setVisible(true);
-					} else {
+					cargar.setVisible(true);
+				} else {
+					for (Libro libro : result)
 						RootPanel.get("libros").add(new LibroUI(libro));
-						cargar.setVisible(false);
-					}
+					cargar.setVisible(false);
+				}
+
 				alerta("Conseguido ;D");
 			}
 		});

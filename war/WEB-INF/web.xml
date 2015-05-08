@@ -7,11 +7,12 @@
 	<!-- Servlets -->
 	<servlet>
 		<servlet-name>BBService</servlet-name>
-		<servlet-class>es.junquera.bibliobase.server.BiblioBaseServiceImpl</servlet-class>
+		<servlet-class>es.junquescu.bibliobase.server.BiblioBaseServiceImpl</servlet-class>
 	</servlet>
+
 	<servlet>
 		<servlet-name>LoginService</servlet-name>
-		<servlet-class>es.junquera.bibliobase.server.LoginServiceImpl</servlet-class>
+		<servlet-class>es.junquescu.bibliobase.server.LoginServiceImpl</servlet-class>
 	</servlet>
 
 	<servlet-mapping>

@@ -16,10 +16,10 @@
 	<!-- <inherits name='com.google.gwt.user.theme.dark.Dark'/> -->
 
 	<!-- Other module inherits -->
-	<inherits name='es.junquera.bibliobase.Libro' />
+	<inherits name='es.junquescu.bibliobase.Libro' />
 
 	<!-- Specify the app entry point class. -->
-	<entry-point class='es.junquera.bibliobase.client.BiblioBase' />
+	<entry-point class='es.junquescu.bibliobase.client.BiblioBase' />
 
 	<!-- Specify the paths for translatable code -->
 	<source path='client' />

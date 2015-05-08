@@ -1,4 +1,4 @@
-package es.junquera.bibliobase.client;
+package es.junquescu.bibliobase.client;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,8 +9,8 @@ import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.HorizontalPanel;
 
-import es.junquera.bibliobase.server.BiblioException;
-import es.junquera.bibliobase.server.Libro;
+import es.junquescu.bibliobase.server.BiblioException;
+import es.junquescu.bibliobase.server.Libro;
 
 public class LibroUIAdmin extends LibroUI {
 
