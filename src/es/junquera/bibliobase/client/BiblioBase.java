@@ -1,13 +1,6 @@
 package es.junquera.bibliobase.client;
 
-import java.util.ArrayList;
-
-import com.google.api.server.spi.auth.common.User;
-import com.google.appengine.api.oauth.OAuthRequestException;
-import com.google.appengine.api.oauth.OAuthService;
-import com.google.appengine.api.oauth.OAuthServiceFactory;
 import com.google.gwt.core.client.*;
-import com.google.gwt.dom.client.Element;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.user.client.rpc.AsyncCallback;
@@ -23,24 +16,33 @@ public class BiblioBase implements EntryPoint {
 	Button cargar = new Button();
 
 	/**
-	 * The message displayed to the user when the server cannot be reached or
-	 * returns an error.
-	 */
-	private static final String SERVER_ERROR = "An error occurred while "
-			+ "attempting to contact the server. Please check your network "
-			+ "connection and try again.";
-
-	/**
 	 * Create a remote service proxy to talk to the server-side Greeting
 	 * service.
 	 */
 
+	private LoginInfo loginInfo = null;
+	private VerticalPanel loginPanel = new VerticalPanel();
+	private Label loginLabel = new Label(
+			"Por favor inicie sesión para utilizar nuestro sistema de biblioteca.");
+	private Anchor signInLink = new Anchor("Sign In");
+
 	protected static final BiblioBaseServiceAsync biblioBaseService = GWT
 			.create(BiblioBaseService.class);
+
+	protected static final LoginServiceAsync loginService = GWT
+			.create(LoginService.class);
 
 	protected static void alerta(String alerta) {
 		RootPanel.get("debug").clear();
 		RootPanel.get("debug").add(new HTML(alerta));
+	}
+
+	private void loadLogin() {
+		// Assemble login panel.
+		signInLink.setHref(loginInfo.getLoginUrl());
+		loginPanel.add(loginLabel);
+		loginPanel.add(signInLink);
+		RootPanel.get("login").add(loginPanel);
 	}
 
 	/**
@@ -48,6 +50,30 @@ public class BiblioBase implements EntryPoint {
 	 */
 	@Override
 	public void onModuleLoad() {
+
+		loginService.login(GWT.getHostPageBaseURL(),
+				new AsyncCallback<LoginInfo>() {
+
+					@Override
+					public void onFailure(Throwable caught) {
+					}
+
+					@Override
+					public void onSuccess(LoginInfo result) {
+						loginInfo = result;
+						if (!loginInfo.isLoggedIn()) {
+							loadLogin();
+						} else {
+							build();
+						}
+
+					}
+				});
+
+	}
+
+	public void build() {
+
 		final ToggleButton administrar = new ToggleButton(
 				"Ver como administrador", "Ver como usuario");
 		administrar.addClickHandler(new ClickHandler() {
